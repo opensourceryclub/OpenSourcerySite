@@ -1,0 +1,43 @@
+<div class="jumbotron jumbotron-fluid" style="margin-top:57px;">
+	<div class="container-fluid text-center">
+		<h1 class="display-2 title">Projects</h1>
+		<hr class="my-4">
+		<p class="lead">Some of the Projects We've Done</p>
+	</div>
+</div>
+<%# Quick Links %>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4 col-xsm-12" style="border: 1px solid black">
+			<h3>GitHub</h3>
+		</div>
+		<div class="col-sm-4 col-xsm-12" style="border: 1px solid black">
+			<h3>GitHub</h3>
+		</div>
+		<div class="col-sm-4 col-xsm-12" style="border: 1px solid black">
+			<h3>Blog</h3>
+		</div>
+	</div>
+</div>
+<%# Headliners %>
+<div class="container-fluid">
+	<h2 class="title display-4">The Headliners</h2>
+	<p class="lead text-muted text-center">A small selection of some of our best work</p>
+	<div class="row">
+		<div class="card-body row">
+			<% [1, 2, 3, 4].each do |e| %>
+				<div id="<%= e %>" class="col-md-3 col-sm-12">
+					<%= render 'shared/project-card' %>
+				</div>
+			<% end %>
+			<!--div class="col-md-3 col-sm-12">
+			<%= render 'shared/project-card' %>
+		</div>
+		<div class="col-md-3 col-sm-12">
+			<%= render 'shared/project-card' %>
+		</div>
+		<div class="col-md-3 col-sm-12">
+			<%= render 'shared/project-card' %>
+		</div-->
+		</div>
+	</div>

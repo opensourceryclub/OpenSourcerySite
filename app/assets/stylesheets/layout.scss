@@ -1,0 +1,101 @@
+@import "bootstrap";
+
+/**
+ * Styles for the layouts and partials
+ */
+$header-colors: (
+  "scroll": #212529,
+  "scroll-hover": #fff,
+  "fixed": rgba(0, 0, 0, 0),
+  "fixed-hover": rgba(0, 0, 0, 0)
+);
+
+/*********************
+ *** Header Styles ***
+ *********************/
+
+#mainNav {
+  width: 100%;
+  position: absolute;
+  // background-color: map-get($header-colors, "fixed");
+  border-bottom-color: rgba(0, 0, 0, 0);
+  border-bottom: 1px solid map-get($theme-colors, "primary");
+  background-color: map-get($theme-colors, "primary");
+}
+
+/* 
+ * This code section was released by Blackrock Digital under the 'Clean Blog' Bootstrap template.
+ * Copyright 2013-2019 Blackrock Digital LLC. Released under MIT License
+ */
+@media only screen and (min-width: 992px) {
+  #mainNav {
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+  }
+
+  #mainNav .nav-link,
+  #mainNav > .navbar-brand {
+    transition: color 0.2s;
+  }
+
+  #mainNav.is-fixed {
+    /* when the user scrolls down, we hide the header right above the viewport */
+    position: fixed;
+    top: -57px;
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: -webkit-transform 0.2s;
+    transition: transform 0.2s;
+    transition: transform 0.2s, -webkit-transform 0.2s;
+    border-bottom: 1px solid rgba(map-get($theme-colors, "primary"), 0.9);
+    background-color: rgba(map-get($theme-colors, "primary"), 0.9);
+  }
+
+  #mainNav.is-visible {
+    /* if the user changes the scrolling direction, we show the header */
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  #mainNav.is-fixed .navbar-brand {
+    color: map-get($header-colors, "scroll");
+  }
+  #mainNav.is-fixed .navbar-brand:focus,
+  #mainNav.is-fixed .navbar-brand:hover {
+    color: map-get($header-colors, "scroll-hover");
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+  }
+  #mainNav.is-fixed .navbar-nav > li.nav-item > a {
+    color: map-get($header-colors, "scroll");
+  }
+  #mainNav.is-fixed .navbar-nav > li.nav-item > a:focus,
+  #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
+    color: map-get($header-colors, "scroll-hover");
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+  }
+} /* End of 'Clean Blog' code section */
+
+/*********************
+ *** Footer Styles ***
+ *********************/
+.footer {
+  position: absolute;
+  border-top: 1px solid black;
+  // bottom: 0; /* why does this mess the footer up? */
+  right: 0;
+  width: 100%;
+}
+
+.footer > div {
+  width: 100%;
+}
+
+.footer p {
+  width: 100%;
+  text-align: center;
+}

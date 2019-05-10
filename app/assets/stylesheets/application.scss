@@ -1,0 +1,52 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+ /* Bootstrap overrides */
+
+
+$theme-colors: (
+  "primary": rgb(58, 170, 255),
+  "secondary": rgb(230, 111, 184),
+  "light": #F9F9F9,
+  "dark": #101030,
+  "danger": #FF3777
+);
+@import "bootstrap";
+@import "./layout.scss";
+@import "./home.scss";
+
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans|Gugi");
+
+body {
+  font-family: Noto Sans, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar a {
+  font-family: Gugi, sans-serif;
+}
+
+.nav-link, .navbar-brand{
+  color: map-get($theme-colors, "light");
+}
+
+.title {
+  @extend .text-uppercase, .my-2, .text-center;
+  font-weight: bold;
+}
+
+.subtitle {
+  @extend .text-uppercase, .my-4;
+  font-weight: bold;
+  
+}
