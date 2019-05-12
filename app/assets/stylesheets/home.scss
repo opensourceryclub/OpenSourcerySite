@@ -3,3 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "bootstrap";
+
+#main-title.title {
+	font-size: 3.5rem !important;
+}
+
+section {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
