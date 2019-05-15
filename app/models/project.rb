@@ -7,10 +7,15 @@ class Project < ApplicationRecord
 
   # Validations
   validates :name, presence: true, length: { maximum: 24 }
-  validates :status, presence: true,
+  validates :status, presence: true
   validates :conjurer, presence: true
   validates :sage, presence: true
   validates :tags, length: { maximum: 128 }
   validates :desc, length: { maximum: 8196 }
   validates :repo_url, length: { maximum: 128 }
+end
+class Project < ApplicationRecord
+  # Associations
+  # Validations
+  # Logic
 end

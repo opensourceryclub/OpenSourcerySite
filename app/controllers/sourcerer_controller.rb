@@ -1,0 +1,2 @@
+class SourcererController < ApplicationController
+end

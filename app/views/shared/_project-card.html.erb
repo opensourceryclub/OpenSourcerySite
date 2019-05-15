@@ -3,13 +3,13 @@
 		this is a project card
 	</div>
 </div%>
-
-<div class="card">
-	<div class="card-body">
-		<h5 class="card-title">Temp</h5>
-		<h6 class="card-subtitle mb-2 text-muted">Author</h6>
-		<p class="card-text">This will be a short description of the project. Lorem ipsum doloret est.</p>
-    	<a href="#" class="card-link hover-dark"><span class="fab fa-github"></span> GitHub</a>
-    	<a href="#" class="card-link hover-dark">Author</a>
+<%# d-flex flex-column align-items-baseline justify-content-center text-center %>
+<div class="card" style="height: 100%;">
+	<div class="card-body ">
+		<h5 class="card-title"><%= name || 'Title' %></h5>
+		<h6 class="card-subtitle mb-2 text-muted"><%= author || 'Author'%></h6>
+		<p class="card-text"><%= description || 'description of the project' %></p>
+    	<a href="<%= link %>" class="card-link hover-dark"><span class="fab fa-github"></span> GitHub</a>
+		<%# link_to('<span class="fab fa-github"></span> GitHub', link, { class: 'card-link hover-dark' }) %>
 	</div>
 </div>

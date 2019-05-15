@@ -64,10 +64,15 @@
 		<h1 class="title display-4">Projects</h1>
 		<p class="lead my-3">Check out some of the cool things we've done</p>
 		<div class="row color-dark">
-			<% [1, 2, 3, 4].each do |e| %>
-				<div id="project-card-<%= e %>" class="col-md-3 col-sm-6 col-xsm-12">
-					<%= render 'shared/project-card' %>
-				</div>
+			<% @projects.each do |p| %>
+			<div id="project-card-<%= p[:id] %>" class="col-md-3 col-sm-6 col-xsm-12">
+					<%= render 'shared/project-card',
+						name: p[:name],
+						author: p[:author],
+						description: p[:description],
+						link: p[:link]
+					 %>
+			</div>
 			<% end %>
 		</div>
 		<%= link_to 'Projects', projects_path, { class: 'btn btn-primary btn-lg color-dark my-3'} %>
