@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   # Guild Pages
   scope :guild, as: 'guild' do 
-	  get '/', to: 'guild#index'
+    get '/', to: 'guild#index'
+    resources :project
 	end
   # Error pages
   %w( 401 404 422 500 ).each do |code|

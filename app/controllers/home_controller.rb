@@ -33,8 +33,10 @@ class HomeController < ApplicationController
   end
 
   def projects
+    render 'shared/construction'
   end
 
   def sponsors
+    render 'shared/construction'
   end
 end

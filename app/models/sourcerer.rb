@@ -1,4 +1,5 @@
 class Sourcerer < ApplicationRecord
+	has_secure_password
 	# Associations
 	has_and_belongs_to_many :projects,  join_table: :project_memberships
 	

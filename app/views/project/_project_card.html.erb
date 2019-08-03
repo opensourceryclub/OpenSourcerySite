@@ -1,0 +1,9 @@
+<div class="card" style="height: 100%;">
+	<div class="card-body ">
+		<h5 class="card-title"><%= project.name || 'Title' %></h5>
+		<h6 class="card-subtitle mb-2 text-muted"><%= project.author || 'Author'%></h6>
+		<p class="card-text"><%= project.description || 'description of the project' %></p>
+    	<a href="<%= project.link %>" class="card-link hover-dark"><span class="fab fa-github"></span> GitHub</a>
+		<%# link_to('<span class="fab fa-github"></span> GitHub', link, { class: 'card-link hover-dark' }) %>
+	</div>
+</div>

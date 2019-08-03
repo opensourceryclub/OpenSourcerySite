@@ -12,5 +12,6 @@ class CreateSourcerers < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+    add_index :sourcerers, :email, unique: true
   end
 end
