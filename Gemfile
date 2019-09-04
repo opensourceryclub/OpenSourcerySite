@@ -1,7 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+<<<<<<< HEAD
 ruby '2.5.5'
+=======
+ruby '>= 2.5.3'
+>>>>>>> projects
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
@@ -29,6 +33,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'ransack'
+gem 'grapple', git: 'https://github.com/DonIsaac/grapple.git'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

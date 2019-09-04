@@ -16,34 +16,35 @@
 
 
 $theme-colors: (
-  "primary": rgb(58, 170, 255),
+  "primary": #18bbea,// rgb(58, 170, 255), // logo primary: #08abca // logo variation: #18bbea
   "secondary": rgb(230, 111, 184),
   "light": #FFFFFF,
   "dark": #101030,
   "danger": #FF3777
 );
 @import "bootstrap";
-@import "./layout.scss";
-@import "./home.scss";
+@import "layout";
+@import "home";
 
-@import url("https://fonts.googleapis.com/css?family=Noto+Sans|Gugi|Raleway|Nunito");
+@import url("https://fonts.googleapis.com/css?family=Gugi|Raleway|Fredoka+One|Merriweather+Sans");
 
 body {
   font-family: Raleway, sans-serif;
   background-color: map-get($theme-colors, "dark");
+  font-size: 18px;
 }
 
 h1, h2, h3, h4, h5, h6, .navbar a {
-  font-family: Gugi, sans-serif;
+  font-family: 'Merriweather Sans', sans-serif;
 }
 
 p {
-  font-size: 13pt;
+  // font-size: 13pt;
 }
- 
+
 .color-primary,
 .color-primary h1 h2 h3 h4 h5 h6 p a li {
-  color: map-get($theme-colors, "primary"); 
+  color: map-get($theme-colors, "primary");
 }
 
 .color-light,
@@ -73,16 +74,16 @@ a.hover-light:hover {
 }
 
 .nav-link, .navbar-brand{
-  color: map-get($theme-colors, "light"); 
+  color: map-get($theme-colors, "light");
 }
 
 .title {
-  @extend .text-uppercase, .my-2, .text-center;
+  @extend .text-uppercase, .mb-5, .text-center;
   font-weight: bold;
 }
 
 .subtitle {
-  @extend .text-uppercase, .my-4;
+  @extend .text-uppercase, .mb-4;
   font-weight: bold;
-  
+
 }
