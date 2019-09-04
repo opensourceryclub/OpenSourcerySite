@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2019_05_10_025847) do
     t.text "page", limit: 1024
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_sourcerers_on_email", unique: true
   end
 
 end

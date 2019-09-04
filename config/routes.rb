@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   # Landing Pages
   root 'home#index'
+  get '/get-involved', to: 'home#get_involved'
   get '/sponsors', to: 'home#sponsors'
   get '/projects', to: 'home#projects'
 
   # Guild Pages
-  scope :guild, as: 'guild' do 
+  scope :guild, as: 'guild' do
     get '/', to: 'guild#index'
     resources :project
 	end
