@@ -1,5 +1,14 @@
 # README
 
+## How To Start the Server
+
+in production:
+```sh
+# First, precompile the assets
+RAILS_ENV=production rails assets:precompile
+rails server -p [port] -e production
+```
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
