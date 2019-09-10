@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import "bootstrap";
+@import "base";
 
 #main-title.title {
 	font-size: 3.5rem !important;
@@ -11,6 +11,16 @@
 section {
 	padding-top: 1.5rem;
 	padding-bottom: 1.5rem;
+}
+
+section.page-section {
+	&:nth-child(odd) {
+		@extend .bg-dark, .color-primary;
+	}
+
+	&:nth-child(even) {
+		@extend .bg-light, .color-dark;
+	}
 }
 
 .about-icon {
