@@ -9,11 +9,13 @@
 	<div class="collapse navbar-collapse" id="navbarNav">
 	<ul class="navbar-nav ml-auto">
 		<!--li class="nav-item">
-			<%#= link_to 'Get Involved', get_involved_path, class: 'nav-link' %>
+			<%#= link_to guild_dashboard_index_path, class: 'nav-link' do %>
+				Guild
+			<%# end %>
 		</li-->
 		<li class="nav-item">
 			<%= link_to 'https://github.com/OpenSourceryClub', class: 'nav-link' do %>
-				<i class="fab fa-github"></i>
+				<i class="fab fa-github"></i> GitHub
 			<% end %>
 		</li>
 	</ul>
@@ -22,17 +24,16 @@
 
 <%# block comment hack %>
 <% if false %>
-	  	<li class="nav-item">
-			<%= link_to 'Projects', projects_path, { class: 'nav-link' } %>
-	  	</li>
-	  	<li class="nav-item">
-				<%= link_to 'Sponsors', sponsors_path, { class: 'nav-link' } %>
-	  	</li>
-		<li class="nav-item">
-			<a class="nav-link" href="#">Blog</a>
-		</li>
-		<li class="nav-item">
-			<%= link_to 'Guild', guild_path, { class: 'nav-link' } %>
-		</li>
-
+	<li class="nav-item">
+		<%= link_to 'Projects', projects_path, { class: 'nav-link' } %>
+	</li>
+	<li class="nav-item">
+		<%= link_to 'Sponsors', sponsors_path, { class: 'nav-link' } %>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="#">Blog</a>
+	</li>
+	<li class="nav-item">
+		<%= link_to 'Guild', guild_path, { class: 'nav-link' } %>
+	</li>
 <% end %>
