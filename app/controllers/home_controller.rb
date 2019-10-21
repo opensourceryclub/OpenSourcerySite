@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
+
   def index
+    @groupme_url = "https://groupme.com/join_group/49800573/ziPXHEva"
     @projects = [
       {
         id: 1,
