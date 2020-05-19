@@ -11,5 +11,5 @@ app.use(express.static('build'))
 
 // start server
 app.listen(PORT, () => {
-  console.log(`Open Sourcery static file server running on :${PORT}`)
+  console.log(`Open Sourcery web server started on :${PORT}`)
 })

@@ -1,7 +1,7 @@
 {
   "name": "OpenSourcerySiteArchitekt",
   "version": "1.0.0",
-  "description": "",
+  "description": "The official Open Sourcery website biaatch",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

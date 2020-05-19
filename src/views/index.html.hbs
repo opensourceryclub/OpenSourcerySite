@@ -102,11 +102,6 @@
         <section id="projects" class="page-section">
             <div class="container text-center">
                 <h1 class="title display-4">Projects</h1>
-                    <div class="col-12 text-center mb-4">
-                        <p>
-                            Check out our active projects here
-                        </p>
-                    </div>
                 <div class="row color-dark">
                     {{!-- <% @projects.each do |p| %>
                     <div id="project-card-<%= p[:id] %>" class="col-12 col-sm-6 col-lg-3 pb-4">
@@ -120,8 +115,9 @@
                     {{/each}}
                 </div>
                 {{!-- <%#= link_to 'Projects', projects_path, { class: 'btn btn-primary btn-lg color-dark my-3'} %> --}}
-                <a class="btn btn-lg btn-primary color-dark my-3" href="https://github.com/OpenSourceryClub"
-                    target="_blank"><span class="fab fa-github"></span> All Projects</a>
+                <a class="btn btn-lg btn-primary color-dark my-3" href="/projects.html">
+                    <span class="fab"></span> All Projects
+                </a>
             </div>
         </section>
     {{/content}}
