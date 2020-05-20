@@ -1,5 +1,9 @@
+before_install:
+- openssl aes-256-cbc -K $encrypted_a6d46052f2e0_key -iv $encrypted_a6d46052f2e0_iv
+  -in site.enc -out ./site -d
+- ssh-add ./site
 deploy:
   provider: script
   script: bash scripts/deploy.sh
   on:
-    branch: express-with-travis 
+    branch: express-with-travis
