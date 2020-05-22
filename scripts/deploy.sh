@@ -1,13 +1,16 @@
-# add server to known hosts
-ssh-keyscan 13.58.120.127 >> ~/.ssh/known_hosts
-
-# connect to server
+# Connect to web host
 ssh site@opensourceryumd.com
 cd ~/site
 
-# stop daemon
+# Stop web server daemon
 pm2 stop site
-npm install
 
-# start daemon
+# Build site with architekt
+npm install
+ark render
+
+# Start web server daemon
 pm2 start index.js --name site
+
+# Close SSH connection
+exit
