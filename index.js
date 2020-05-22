@@ -1,7 +1,7 @@
 const express = require('express')
 
 // for testing
-const PORT = 3000
+const PORT = 8080
 
 // create express app
 const app = express()

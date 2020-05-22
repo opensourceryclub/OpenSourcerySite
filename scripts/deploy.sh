@@ -5,7 +5,7 @@ cd ~
 rm -rf ./OpenSourcerySite
 
 # Clone OpenSourcerySite repo
-git clone git@github.com:DonIsaac/OpenSourcerySite.git
+git clone git@github.com:zachwildd/OpenSourcerySite.git
 
 # Checkout express-with-travis for now
 cd OpenSourcerySite
