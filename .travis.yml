@@ -4,6 +4,7 @@ before_install:
   -in site.enc -out ./site -d
 - chmod 400 ./site
 - ssh-add ./site
+- ssh-keyscan 13.58.120.127 >> ~/.ssh/known_hosts
 deploy:
   provider: script
   script: bash scripts/deploy.sh
