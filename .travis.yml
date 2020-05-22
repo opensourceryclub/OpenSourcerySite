@@ -1,6 +1,7 @@
 language: node_js
 addons:
-  ssh_known_hosts: 13.58.120.127 
+  ssh_known_hosts:
+    - opensourceyumd.com
 before_install:
 - openssl aes-256-cbc -K $encrypted_c099a42a5555_key -iv $encrypted_c099a42a5555_iv
   -in site.enc -out ./site -d
