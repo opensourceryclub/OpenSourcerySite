@@ -1,17 +1,25 @@
-# Connect to web host
+# Move to home directory
+cd ~
+
+# Remove current site directory if it exists
+rm -rf ./OpenSourcerySite
+
+# Clone OpenSourcerySite repo
+git clone git@github.com:DonIsaac/OpenSourcerySite.git
+
+# Checkout express-with-travis for now
+cd OpenSourcerySite
+git checkout express-with-travis
+
 # Stop web server daemon
-# Build site with architekt
+pm2 stop site
+
+# Build site with architekt, assuming it's already installed
+npm install
+ark render
+
 # Start web server daemon
-# Exit SSH session
-ssh site@opensourceryumd.com "
-cd ~/site &&
+pm2 start index.js --name site
 
-pm2 stop site &&
-
-npm install &&
-ark render &&
-
-pm2 start index.js --name site &&
-
+# Exit?
 exit
-"

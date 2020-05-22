@@ -9,6 +9,6 @@ before_install:
 - ssh-add ./site
 deploy:
   provider: script
-  script: bash scripts/deploy.sh
+  script: ssh site@opensourceryumd.com 'bash -s' < scripts/deploy.sh
   on:
     branch: express-with-travis
