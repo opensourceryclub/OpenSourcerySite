@@ -12,10 +12,11 @@
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
+**/log/*
+**/tmp/*
 !/log/.keep
 !/tmp/.keep
+**/yarn-error.log
 
 # Ignore uploaded files in development
 /storage/*
@@ -32,3 +33,9 @@
 
 # Ignore vim swap files
 *.swp
+
+# Ignore compiled code and dependencies
+*.zip
+build/
+dist/
+node_modules/

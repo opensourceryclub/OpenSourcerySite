@@ -1,4 +1,5 @@
 const express = require('express')
+const path = require('path')
 
 // for testing
 const PORT = 8080
@@ -6,7 +7,8 @@ const PORT = 8080
 // create express app
 const app = express()
 
-// serve files from build directory 
+const build = path.
+// serve files from build directory
 app.use(express.static('build'))
 
 // start server
