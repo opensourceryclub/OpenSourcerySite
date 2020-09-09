@@ -1,33 +1,15 @@
 # README
 
-## How To Start the Server
+## Getting Started
 
-in production:
-```sh
-# First, precompile the assets
-RAILS_ENV=production rails assets:precompile
-rails server -p [port] -e production
+Make sure you have [NodeJS](https://nodejs.org/en/download/) v10 or higher installed.
+
+
 ```
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+git clone https://github.com/opensourceryclub/OpenSourcerySite.git
+cd OpenSourcerySite
+# Install dependencies
+npm install
+# Build the source code into static HTML files
+npm run build
+```

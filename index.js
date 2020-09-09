@@ -7,7 +7,6 @@ const PORT = 8080
 // create express app
 const app = express()
 
-const build = path.
 // serve files from build directory
 app.use(express.static('build'))
 
