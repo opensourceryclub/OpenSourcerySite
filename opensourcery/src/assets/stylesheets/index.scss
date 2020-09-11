@@ -1,0 +1,26 @@
+@import "base";
+
+#main-title.title {
+	font-size: 3.5rem !important;
+}
+
+section {
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
+}
+
+section.page-section {
+	&:nth-child(odd) {
+		@extend .bg-dark, .color-primary;
+	}
+
+	&:nth-child(even) {
+		@extend .bg-light, .color-dark;
+	}
+}
+
+.about-icon {
+	display: block;
+	font-size: 48px;
+	text-align: center;
+}
