@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 export const Main = () => (
-    <div>
+    <main>
         <div className="jumbotron jumbotron-fluid bg-dark" style={{ marginTop: '57px', marginBottom: 0 }}>
             <div className="container text-center">
                 <img src="assets/images/Badge.png" alt="Open Sourcery Logo" width="25%" height="25%" />
@@ -153,5 +153,5 @@ export const Main = () => (
                 <a className="btn btn-lg btn-primary color-dark my-3" href="https://github.com/OpenSourceryClub" target="_blank" rel="noopener noreferrer"><span className="fab fa-github" /> All Projects</a>
             </div>
         </section>
-    </div>
+    </main>
 );

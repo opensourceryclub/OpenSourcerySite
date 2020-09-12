@@ -1,8 +1,8 @@
 
-$(document).ready(function () {
-	/* Copyright 2013-2019 Blackrock Digital LLC. Released under MIT License */
-	// Show the navbar when the page is scrolled up
-	var MQL = 992;
+// $(document).ready(function () {
+// 	/* Copyright 2013-2019 Blackrock Digital LLC. Released under MIT License */
+// 	// Show the navbar when the page is scrolled up
+   	var MQL = 992;
 
 	//primary navigation slide-in effect
 	if ($(window).width() > MQL) {
