@@ -1,15 +1,16 @@
 import React from "react";
+import { Button } from "./Button";
 
 export interface ProjectCardProps {
     id?: string;
     title: string;
     author: string;
     description: string;
-    url: string;
+    repoUrl: string;
 }
 
 export interface ProjectCardsProps {
-   cards?: ProjectCardProps[];
+    projects?: ProjectCardProps[];
 }
 
 export const ProjectCard = ({
@@ -17,7 +18,7 @@ export const ProjectCard = ({
     title,
     author,
     description,
-    url
+    repoUrl
 }: ProjectCardProps) => (
         <div id={id} className="col-12 col-sm-6 col-lg-3 pb-4">
             <div className="card" style={{ height: '100%' }}>
@@ -28,12 +29,14 @@ export const ProjectCard = ({
                         <p className="card-text">{description}</p>
                     </div>
                     <div className="mt-2">
-                        <a href={url} className="card-link hover-dark"><span className="fab fa-github" /> See Project</a>
+                        <Button url={repoUrl} icon={"fab fa-github"} text="See Project" />
                     </div>
                 </div>
             </div>
         </div>
     );
 
-export const ProjectCards = ({ cards = [] }: ProjectCardsProps) =>
-    cards.map(props => <ProjectCard key={props.title} {...props} />);
+export const ProjectCards = ({ projects = [] }: ProjectCardsProps) =>
+    <>
+        {projects.map(props => <ProjectCard key={props.title} {...props} />)}
+    </>

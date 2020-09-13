@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import classes from 'classnames';
 
 // I don't remember why this is called MQL
-const MQL = 992;
+// const MQL = 992;
 export const Nav = () => {
     const mainNavRef = useRef<HTMLElement>(null);
     const [previousTop, setPreviousTop] = useState(0);
