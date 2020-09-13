@@ -78,6 +78,7 @@ export const Main = () => (
                     <div className="col-12 text-center">
                         <a href="https://groupme.com/join_group/49800573/ziPXHEva" className="btn btn-primary" target="_blank" rel="noopener noreferrer" >
                             <img src="assets/images/Groupme.png" width="16px" height="16px" alt="GroupMe" />
+                            GroupMe
                         </a>
                         <a href="https://discord.gg/BdfcMRk" className="btn btn-primary" target="_blank" rel="noopener noreferrer">
                             <span className="fab fa-discord" /> Discord
