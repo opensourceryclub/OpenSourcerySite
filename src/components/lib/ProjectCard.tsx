@@ -1,12 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "./Button";
+import { useGithubRepos, Project } from "../../hooks";
+import memoizeOne from "memoize-one";
 
-export interface ProjectCardProps {
+export interface ProjectCardProps extends Project {
     id?: string;
-    title: string;
-    author: string;
-    description: string;
-    repoUrl: string;
 }
 
 export interface ProjectCardsProps {
@@ -15,28 +13,49 @@ export interface ProjectCardsProps {
 
 export const ProjectCard = ({
     id,
-    title,
-    author,
+    name,
+    // author,
     description,
-    repoUrl
+    url
 }: ProjectCardProps) => (
         <div id={id} className="col-12 col-sm-6 col-lg-3 pb-4">
             <div className="card" style={{ height: '100%' }}>
                 <div className="card-body">
                     <div>
-                        <h5 className="card-title">{title}</h5>
-                        <h6 className="card-subtitle mb-2 text-muted">{author}</h6>
+                        <h5 className="card-title">{name}</h5>
+                        {/* <h6 className="card-subtitle mb-2 text-muted">{author}</h6> */}
                         <p className="card-text">{description}</p>
                     </div>
                     <div className="mt-2">
-                        <Button url={repoUrl} icon={"fab fa-github"} text="See Project" />
+                        <Button url={url} icon={"fab fa-github"} text="See Project" />
                     </div>
                 </div>
             </div>
         </div>
     );
 
-export const ProjectCards = ({ projects = [] }: ProjectCardsProps) =>
-    <>
-        {projects.map(props => <ProjectCard key={props.title} {...props} />)}
-    </>
+export const ProjectCards = () => {
+    const { execute, status, error, value: projects } = useGithubRepos();
+
+    useEffect(() => {
+        execute()
+    }, []);
+
+    switch (status) {
+
+        // TODO handle error cases with an error boundary
+        // TODO add a skeleton component to display while loading
+        // NOTE: Fallthrough is intentional
+        case "error":
+            console.error(error)
+        case "idle":
+        case "loading":
+            return <></>;
+        case "success":
+            return <>
+                {projects?.map((props, i) =>
+                    <ProjectCard key={props.name} id={`project-card-${i}`} {...props} />
+                )}
+            </>
+    }
+}
