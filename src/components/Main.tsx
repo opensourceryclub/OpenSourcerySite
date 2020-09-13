@@ -58,7 +58,7 @@ export const Main = () => {
                     <hr className="my-4" />
                     <a className="btn btn-primary btn-lg color-dark" href="https://terplink.umd.edu/organization/open-sourcery">
                         <i className="fas fa-user-plus" /> Join Us
-                </a>
+                    </a>
                 </div>
             </div>
             <section id="about" className="page-section">
@@ -72,7 +72,7 @@ export const Main = () => {
                                 club at the University of Maryland. We aim to promote and
                                 teach software development, enable member projects, and
                                 lower the barrier of entry to programming.
-                        </p>
+                            </p>
                         </div>
                     </div>
                     <div className="row mb-4 justify-content-center">
@@ -89,7 +89,7 @@ export const Main = () => {
                                             are knowledgeable and passionate about. We host
                                             workshops bi-weekly and at bigger events such as
                                             hackathons.
-                                    </p>
+                                        </p>
                                     </div>
                                     <div className="col-12 col-md-4 justify-center">
                                         <span className="about-icon"><i className="fas fa-desktop" /></span>
