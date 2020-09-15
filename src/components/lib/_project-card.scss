@@ -1,0 +1,23 @@
+
+.project-card {
+    .project-stats {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        align-content: space-between;
+        width: 100%;
+        padding: 0 .5em;
+    }
+    .card {
+        .card-header {
+            background-color: #FFF;
+            border-bottom: none;
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+}
