@@ -21,21 +21,16 @@ export const ProjectCard = ({
     url,
     stars,
     watches,
+    forks
 }: ProjectCardProps) => (
         <div id={id} className="col-12 col-sm-6 col-xl-3 pb-4 project-card">
             <div className="card" style={{ height: '100%' }}>
                 <div className="card-header">
-                    <h5 className="card-title">{name}</h5>
-                    <span className="project-stats">
-                        <IconLabel fillStyle="regular" icon="eye">
-                            {watches}
-                        </IconLabel>
-                        <IconLabel fillStyle="regular" icon="star">
-                            {stars}
-                        </IconLabel>
-                        <IconLabel fillStyle="solid" icon="code-branch">
-                            {stars}
-                        </IconLabel>
+                    <h4 className="card-title"><a href={url}>{name}</a></h4>
+                    <span className="project-stats text-muted">
+                        <IconLabel fillStyle="regular" icon="eye" text={watches.toString()} />
+                        <IconLabel fillStyle="regular" icon="star" text={stars.toString()} />
+                        <IconLabel fillStyle="solid" icon="code-branch" text={forks.toString()} />
                     </span>
                 </div>
                 <div className="card-body">
@@ -43,7 +38,9 @@ export const ProjectCard = ({
                         {/* <h6 className="card-subtitle mb-2 text-muted">{author}</h6> */}
                         <p className="card-text">{description}</p>
                     </div>
-                    <div className="mt-2">
+                </div>
+                <div className="card-footer">
+                    <div className="">
                         <LabeledButton url={url} fillStyle="brand" icon="github" text="See Project" />
                     </div>
                 </div>

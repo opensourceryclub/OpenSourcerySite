@@ -1,34 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Gugi|Raleway|Fredoka+One|Merriweather+Sans");
 
-// Overrides bootstrap's theme-colors map variable. Must come before the bootstrap import.
-$theme-colors: (
-  "primary": #18bbea,
-  // rgb(58, 170, 255), // logo primary: #08abca // logo variation: #18bbea
-  "secondary": rgb(230, 111, 184),
-  "light": #ffffff,
-  "dark": #101030,
-  "danger": #ff3777
-);
-
-$theme-complements: (
-  "primary": map-get($theme-colors, "dark"),
-  "secondary": map-get($theme-colors, "dark"),
-  "light": map-get($theme-colors, "dark"),
-  "dark": map-get($theme-colors, "light"),
-  "danger": map-get($theme-colors, "dark")
-);
-
 // $text-tags: h1, h2, h3, h4, h5, h6, p, li;
 $text-tags: h1, h2;
+@import "variables";
 @import "bootstrap/scss/bootstrap";
 @import "footer";
 @import "header";
-@import "project-card";
 
 body {
   font-family: "Merriweather Sans", sans-serif;
   background-color: map-get($theme-colors, "dark");
-  font-size: 18px;
+  // font-size: 18px;
+  font-size: 1em;
 }
 
 
