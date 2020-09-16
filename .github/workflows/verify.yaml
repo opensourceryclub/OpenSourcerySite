@@ -1,0 +1,54 @@
+# Builds and tests pull requests before they are merged
+
+name: Verify
+on: [pull_request]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+    env:
+      NODE_VERSION: 14.x
+      NODE_ENV: development
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ env.NODE_VERSION }}
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+
+    - name: Verify Files
+      run: |
+        illegal_files=(package-lock.json build/)
+        essential_files=(package.json yarn.lock README.md tsconfig.json .gitignore src/ public/)
+
+        for f in $illegal_files; do
+          if [ -e $f ]
+            echo "Found an illegal file $f - Please remove it"
+            exit 1
+          fi
+        done
+
+        for f in $essential_files; do
+          if [ ! -e $f ]
+            echo "Could not find essential file $f - Please make sure it's included"
+            exit 2
+          fi
+        done
+
+    - name: "Cache: Setup"
+      id: yarn-cache-setup
+      run: echo "::set-output name=dir::$(yarn cache dir)"
+
+    - name: "Cache: Yarn"
+      id: yarn-cache
+      uses: actions/cache@v2
+      with:
+        path: ${{ steps.yarn-cache-setup.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: ${{ runner.os }}-yarn-
+
+    - run: yarn install --frozen-lockfile
+    # TODO
+    # - run: yarn lint
+    - run: yarn build
+    - run: yarn test:ci
