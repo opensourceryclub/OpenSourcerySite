@@ -1,0 +1,9 @@
+// TODO: Move variables to _variables.scss file after active development is done
+
+$transition-properties: transition, -webkit-transition, -mos-transition;
+
+@mixin transition($property, $duration: 0.5s, $timing-fn: ease-in-out, $delay: 0s) {
+    @each $t-prop in $transition-properties {
+        #{$t-prop}: $property $duration $timing-fn $delay;
+    }
+}

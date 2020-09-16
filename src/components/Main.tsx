@@ -1,23 +1,27 @@
 import React from 'react';
-import { ButtonProps, Button } from './lib/Button';
-import { ProjectCardProps, ProjectCards } from './lib/ProjectCard';
+import { ButtonProps, Button, LabeledButtonProps, LabeledButton } from './lib/Button';
+import { ProjectCards } from './lib/ProjectCard';
 
 export const Main = () => {
-    const socials: ButtonProps[] = [
+    const socials: LabeledButtonProps[] = [
         {
             text: "Discord",
             url: "https://github.com/react-bootstrap/react-bootstrap/blob/master/src/AbstractNav.tsx",
-            icon: ["fab", "fa-discord"]
+            fillStyle: "brand",
+            icon: "discord",
         },
         {
             text: "GroupMe",
             url: "https://groupme.com/join_group/49800573/ziPXHEva",
+            fillStyle: "solid",
+            icon: "star"
             // icon: ["todo"]
         },
         {
             text: "Email",
             url: "mailto:opensourceryumd@gmail.com",
-            icon: ["fa", "fa-envelope"],
+            icon: "envelope",
+            // icon: ["fa", "fa-envelope"],
         }
     ];
 
@@ -100,7 +104,7 @@ export const Main = () => {
                             </p>
                         </div>
                         <div className="col-12 text-center">
-                            {socials.map(btn => <Button {...btn} />)}
+                            {socials.map(btn => <LabeledButton key={btn.text} {...btn} />)}
                         </div>
                     </div>
                 </div>
@@ -119,7 +123,7 @@ export const Main = () => {
 }
 
 const Banner = () => (
-    <div className="jumbotron jumbotron-fluid bg-dark" style={{ marginTop: '57px', marginBottom: 0 }}>
+    <div className="jumbotron jumbotron-fluid bg-dark" style={{ marginTop: '57px', marginBottom: 0 }} role="banner">
         <div className="container text-center">
             <img src="assets/images/Badge.png" alt="Open Sourcery Logo" width="25%" height="25%" />
             <h1 id="main-title" className="title color-primary">Open Sourcery</h1>
