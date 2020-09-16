@@ -99,7 +99,7 @@ const Banner = () => (
         <div className="container text-center">
             <img src="assets/images/Badge.png" alt="Open Sourcery Logo" width="25%" height="25%" />
             <h1 id="main-title" className="title color-primary">Open Sourcery</h1>
-            <p className="lead my-3 color-primary">Wednesdays, 6:30pm-8pm in the <a className="hover-light" href="https://sandbox.cs.umd.edu/" style={{ textDecoration: 'underline' }}>Sandbox</a></p>
+            <p className="lead my-3 color-primary">Wednesdays, 6:30pm-8pm in the <a className="hover-light" href="https://sandbox.iribe.umd.edu/" style={{ textDecoration: 'underline' }}>Sandbox</a></p>
             <hr className="my-4" />
             <a className="btn btn-primary btn-lg color-dark" href="https://terplink.umd.edu/organization/open-sourcery">
                 <i className="fas fa-user-plus" /> Join Us
