@@ -16,7 +16,16 @@ jobs:
     #   with:
     #     node-version: ${{ env.NODE_VERSION }}
 
-    # - name: Verify Files
+    - name: Verify Files
+      run: |
+        if [ ! -e package.json ]
+          echo "No package.json. Aborting."
+          exit 1
+        fi
+        if [ -e package-lock.json ]
+          echo "It looks like you used NPM instead of yarn. Please delete package-lock.json and use yarn to install dependencies."
+          exit 1
+        fi
     #   run: |
     #     illegal_files=(package-lock.json build/)
     #     essential_files=(package.json yarn.lock README.md tsconfig.json .gitignore src/ public/)
