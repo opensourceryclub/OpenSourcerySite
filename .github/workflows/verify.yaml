@@ -1,7 +1,7 @@
 # Builds and tests pull requests before they are merged
 
 name: Verify
-on: [pull_request]
+on: [push, pull_request]
 
 jobs:
   test:
