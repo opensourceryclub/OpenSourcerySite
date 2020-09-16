@@ -11,7 +11,7 @@ Make sure you have [node](https://nodejs.org/en/download/) installed. If you are
 ``` shell 
 $ npm install yarn
 $ git clone https://github.com/opensourceryclub/OpenSourcerySite.git
-$ git remote add upstream https://github.com/opensourceryclub/OpenSourcerySite.git
+$ git remote set-url origin <Your REP URL>
 
 ```
 > Now install the remaining packages and dependencies .
