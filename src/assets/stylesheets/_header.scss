@@ -19,8 +19,12 @@
    *********************/
 
   .navbar-brand-text {
-    // font-size: 30px;
     font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    &:hover {
+      text-shadow: 1px 1px 3px #70c5dda3;
+    }
   }
 
   .navbar-dark .navbar-nav .nav-link {
@@ -64,6 +68,7 @@
       -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
       -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
     }
 
     #mainNav .nav-link,

@@ -1,7 +1,6 @@
 import { useAsync } from "./useAsync";
 import { throws } from "./util";
 
-const OPSRC_URL = "https://api.github.com/orgs/opensourceryclub";
 // curl "https://api.github.com/search/repositories?q=stars:>0+user:opensourceryclub&sort=stars&order=desc"
 export type SortBy = "updated" | "forks" | "help-wanted-issues" | "stars";
 

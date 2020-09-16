@@ -29,3 +29,9 @@ section.page-section {
 	font-size: 48px;
 	text-align: center;
 }
+
+#projects > .container {
+	@include media-breakpoint-up(xl) {
+		max-width: 1280px;
+	}
+}

@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import { Button, LabeledButton } from "./Button";
+import { LabeledButton } from "./Button";
 import { useGithubRepos, Project } from "../../hooks";
-import memoizeOne from "memoize-one";
 import "./_project-card.scss";
 import { IconLabel } from "./Label";
 
@@ -16,7 +15,6 @@ export interface ProjectCardsProps {
 export const ProjectCard = ({
     id,
     name,
-    // author,
     description,
     url,
     stars,

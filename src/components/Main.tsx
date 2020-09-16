@@ -1,6 +1,7 @@
 import React from 'react';
-import { ButtonProps, Button, LabeledButtonProps, LabeledButton } from './lib/Button';
+import { LabeledButtonProps, LabeledButton } from './lib/Button';
 import { ProjectCards } from './lib/ProjectCard';
+import "../assets/stylesheets/index.scss";
 
 export const Main = () => {
     const socials: LabeledButtonProps[] = [
@@ -14,43 +15,14 @@ export const Main = () => {
             text: "GroupMe",
             url: "https://groupme.com/join_group/49800573/ziPXHEva",
             fillStyle: "solid",
-            icon: "star"
-            // icon: ["todo"]
+            icon: "star" // TODO replace this with GroupMe icon
         },
         {
             text: "Email",
             url: "mailto:opensourceryumd@gmail.com",
             icon: "envelope",
-            // icon: ["fa", "fa-envelope"],
         }
     ];
-
-    // const projects: ProjectCardProps[] = [
-    //     {
-    //         title: "LSTM Stock Predictor",
-    //         author: "Eric Robertson",
-    //         description: "Uses machine learning via tensorflow to predict stock prices.",
-    //         repoUrl: "https://github.com/opensourceryclub/LSTM-Stock-Predictor",
-    //     },
-    //     {
-    //         name: "SwarmAI",
-    //         // author: "Emery Bacon",
-    //         description: "Particle swarm optimization visualization in Processing.",
-    //         url: "https://github.com/opensourceryclub/SwarmAI",
-    //     },
-    //     {
-    //         title: "Raytrace Renderer",
-    //         author: "Donald Isaac",
-    //         description: "A rendering engine using raytracing and phong shading in Java.",
-    //         repoUrl: "https://github.com/DonIsaac/Raytrace-Renderer",
-    //     },
-    //     {
-    //         title: "Architekt",
-    //         author: "Donald Isaac",
-    //         description: "A static site generator inspired by Rail's ActionView and powered by Handlebars",
-    //         repoUrl: "https://github.com/opensourceryclub/Architekt"
-    //     },
-    // ];
 
     const activities = [
         {
@@ -91,7 +63,7 @@ export const Main = () => {
                         <div className="col-12">
                             <div className="container-fluid">
                                 <div className="row">
-                                    {activities.map(props => <Activity {...props} />)}
+                                    {activities.map(props => <Activity key={props.title} {...props} />)}
                                 </div>
                             </div>
                         </div>
