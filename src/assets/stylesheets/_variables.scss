@@ -1,0 +1,21 @@
+
+$font-size: 1em;
+// Overrides bootstrap's theme-colors map variable. Must come before the bootstrap import.
+$theme-colors: (
+  "primary": #18bbea,
+  // rgb(58, 170, 255), // logo primary: #08abca // logo variation: #18bbea
+  "secondary": rgb(230, 111, 184),
+  "light": #ffffff,
+  "dark": #101030,
+  "danger": #ff3777
+);
+
+$theme-complements: (
+  "primary": map-get($theme-colors, "dark"),
+  "secondary": map-get($theme-colors, "dark"),
+  "light": map-get($theme-colors, "dark"),
+  "dark": map-get($theme-colors, "light"),
+  "danger": map-get($theme-colors, "dark")
+);
+
+// @import "bootstrap/scss/_variables.scss";

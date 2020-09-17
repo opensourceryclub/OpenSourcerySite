@@ -1,5 +1,10 @@
 @import "base";
 
+.appRoot {
+	width: 100%;
+	height: 100%;
+}
+
 #main-title.title {
 	font-size: 3.5rem !important;
 }
@@ -23,4 +28,10 @@ section.page-section {
 	display: block;
 	font-size: 48px;
 	text-align: center;
+}
+
+#projects > .container {
+	@include media-breakpoint-up(xl) {
+		max-width: 1280px;
+	}
 }
