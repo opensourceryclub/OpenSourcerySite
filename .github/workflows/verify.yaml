@@ -32,17 +32,17 @@ jobs:
 
           for f in $illegal_files; do
             if [ -e $f ]
-              echo "Found an illegal file $f - Please remove it"
-              exit 1
-            fi
+              echo 'Found an illegal file $f - Please remove it';
+              exit 1;
+            fi;
           done
 
-      #     for f in $essential_files; do
-      #       if [ ! -e $f ]
-      #         echo "Could not find essential file $f - Please make sure it's included"
-      #         exit 2
-      #       fi
-      #     done
+          for f in $essential_files; do
+            if [ ! -e $f ]
+              echo 'Could not find essential file $f - Please make sure it's included';
+              exit 2;
+            fi;
+          done
 
       - name: "Cache: Setup"
         id: yarn-cache-setup
