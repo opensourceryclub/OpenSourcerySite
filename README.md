@@ -7,7 +7,7 @@ Make sure you have [node](https://nodejs.org/en/download/) installed. If you are
 ## Setup
 > Update and install the following package first.
 ``` bash
-$ npm install yarn
+$ npm install -g yarn
 ```
 ``` shell 
 $ git clone https://github.com/opensourceryclub/OpenSourcerySite.git
@@ -23,7 +23,7 @@ $ yarn install
 $ yarn start
 ```
 ## Contributing
-Submit an issue with a reference to your fork request and we will be more than happy to review your changes.
+Submit a [pull request](https://github.com/opensourceryclub/OpenSourcerySite/pulls) and we will be more than happy to review your changes.
 
 ## License
 [GPL-3.0-only or GPL-3.0-or-later
