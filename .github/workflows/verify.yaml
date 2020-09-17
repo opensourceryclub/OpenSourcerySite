@@ -5,59 +5,59 @@ on: [push, pull_request]
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
     env:
       NODE_VERSION: 14.x
       NODE_ENV: development
     steps:
-    - uses: actions/checkout@v2
-    # - name: Use Node.js ${{ env.NODE_VERSION }}
-    #   with:
-    #     node-version: ${{ env.NODE_VERSION }}
+      - uses: actions/checkout@v2
+      # - name: Use Node.js ${{ env.NODE_VERSION }}
+      #   with:
+      #     node-version: ${{ env.NODE_VERSION }}
 
-    - name: Verify Files
-      run: |
-        if [ ! -e package.json ]
-          echo "No package.json. Aborting."
-          exit 1
-        fi
-        if [ -e package-lock.json ]
-          echo "It looks like you used NPM instead of yarn. Please delete package-lock.json and use yarn to install dependencies."
-          exit 1
-        fi
-    #   run: |
-    #     illegal_files=(package-lock.json build/)
-    #     essential_files=(package.json yarn.lock README.md tsconfig.json .gitignore src/ public/)
+      - name: Verify Files
+        shell: bash
+        # run: |
+        #   if [ ! -e package.json ]
+        #     echo "No package.json. Aborting."
+        #     exit 1
+        #   fi
+        #   if [ -e package-lock.json ]
+        #     echo "It looks like you used NPM instead of yarn. Please delete package-lock.json and use yarn to install dependencies."
+        #     exit 1
+        #   fi
+        run: |
+          illegal_files=(package-lock.json build/)
+          essential_files=(package.json yarn.lock README.md tsconfig.json .gitignore src/ public/)
 
-    #     for f in $illegal_files; do
-    #       if [ -e $f ]
-    #         echo "Found an illegal file $f - Please remove it"
-    #         exit 1
-    #       fi
-    #     done
+          for f in $illegal_files; do
+            if [ -e $f ]
+              echo "Found an illegal file $f - Please remove it"
+              exit 1
+            fi
+          done
 
-    #     for f in $essential_files; do
-    #       if [ ! -e $f ]
-    #         echo "Could not find essential file $f - Please make sure it's included"
-    #         exit 2
-    #       fi
-    #     done
+      #     for f in $essential_files; do
+      #       if [ ! -e $f ]
+      #         echo "Could not find essential file $f - Please make sure it's included"
+      #         exit 2
+      #       fi
+      #     done
 
-    - name: "Cache: Setup"
-      id: yarn-cache-setup
-      run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: "Cache: Setup"
+        id: yarn-cache-setup
+        run: echo "::set-output name=dir::$(yarn cache dir)"
 
-    - name: "Cache: Yarn"
-      id: yarn-cache
-      uses: actions/cache@v2
-      with:
-        path: ${{ steps.yarn-cache-setup.outputs.dir }}
-        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: ${{ runner.os }}-yarn-
+      - name: "Cache: Yarn"
+        id: yarn-cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache-setup.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-yarn-
 
-    - run: yarn install --frozen-lockfile
-    # TODO
-    # - run: yarn lint
-    - run: yarn build
-    - run: yarn test:ci
+      - run: yarn install --frozen-lockfile
+      # TODO
+      # - run: yarn lint
+      - run: yarn build
+      - run: yarn test:ci
