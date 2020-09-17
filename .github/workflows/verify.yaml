@@ -31,17 +31,17 @@ jobs:
           essential_files=(package.json yarn.lock README.md tsconfig.json .gitignore src/ public/)
 
           for f in $illegal_files; do
-            if [ -e $f ]
-              echo 'Found an illegal file $f - Please remove it';
-              exit 1;
-            fi;
+              if [ -e $f ]; then
+                  echo "Found an illegal file $f - Please remove it";
+                  exit 1;
+              fi;
           done
 
           for f in $essential_files; do
-            if [ ! -e $f ]
-              echo 'Could not find essential file $f - Please make sure it's included';
-              exit 2;
-            fi;
+              if [ ! -e $f ]; then
+                  echo "Could not find essential file $f - Please put it back";
+                  exit 2;
+              fi;
           done
 
       - name: "Cache: Setup"
