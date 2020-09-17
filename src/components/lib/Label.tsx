@@ -11,6 +11,7 @@ export interface IconProps {
      */
     fillStyle?: "solid" | "regular" | "light" | "duotone" | "brand";
     icon: string;
+    fa?: "true" | "false";
 }
 
 export interface IconLabelProps extends IconProps {
@@ -46,12 +47,12 @@ export const IconLabel: FC<IconLabelProps> = ({
  * Creates a FontAwesome icon
  * @param props
  */
-export const Icon: FC<IconProps> = ({ fillStyle = "", icon = "" }) =>
-    <span
-        className={classNames([
-            "fa" + fillStyle.charAt(0),
-            icon.startsWith("fa-")
-                ? icon
-                : "fa-" + icon
-        ])}
-    />;
+export const Icon: FC<IconProps> = ({ fillStyle = "", icon = "", fa = "true" }) => {
+    if(fa === "false") {
+        return <span><img className="custom-svg" src={icon} alt="GroupMe Icon" /></span>
+    }
+        
+    // By default use font awesome.
+    return <span className={classNames(["fa" + fillStyle.charAt(0), icon.startsWith("fa-") ? icon : "fa-" + icon])} />;
+}
+    
