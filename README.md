@@ -23,7 +23,7 @@ $ yarn install
 $ yarn start
 ```
 ## Contributing
-Submit a [pull request](https://github.com/opensourceryclub/OpenSourcerySite/pulls) and we will be more than happy to review your changes.
+Make changes on the forked repository then submit a [pull request](https://github.com/opensourceryclub/OpenSourcerySite/pulls) and we will be more than happy to review your changes.
 
 ## License
 [GPL-3.0-only or GPL-3.0-or-later
