@@ -1,7 +1,6 @@
 {
     "extends": [
-        "react-app",
-        "shared-config"
+        "react-app"
     ],
     "rules": {
         "additional-rule": "warn"
