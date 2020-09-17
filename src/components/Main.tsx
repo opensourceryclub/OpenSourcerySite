@@ -16,7 +16,7 @@ export const Main = () => {
             url: "https://groupme.com/join_group/49800573/ziPXHEva",
             fillStyle: "solid",
             icon: "/assets/images/GroupMe.svg",
-            fa: "false",
+            fa: false,
         },
         {
             text: "Email",
