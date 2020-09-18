@@ -11,19 +11,17 @@ export interface ProjectCardProps extends Project {
 export interface ProjectCardsProps {
     projects?: ProjectCardProps[];
 }
-
 export const ProjectCard = ({
     id,
     name,
     description,
     url,
-    cardType,
     stars,
     watches,
     forks
 }: ProjectCardProps) => (
         <div id={id} className="col-12 col-sm-6 col-xl-3 pb-4 project-card">
-            <div className={"card "+ cardType} style={{ height: '100%' }}>
+            <div className={"card"} style={{ height: '100%' }}>
                 <div className="card-header">
                     <h4 className="card-title"><a href={url}>{name}</a></h4>
                     <span className="project-stats text-muted">
@@ -69,6 +67,9 @@ export const ProjectCards = () => {
             return <></>;
         case "success":
             return <>
+                {projects?.map((props, i) =>{
+                    console.log(props);
+                })}
                 {projects?.map((props, i) =>
                     <ProjectCard key={props.name} id={`project-card-${i}`} {...props} />
                 )}
