@@ -17,12 +17,13 @@ export const ProjectCard = ({
     name,
     description,
     url,
+    cardType,
     stars,
     watches,
     forks
 }: ProjectCardProps) => (
         <div id={id} className="col-12 col-sm-6 col-xl-3 pb-4 project-card">
-            <div className="card" style={{ height: '100%' }}>
+            <div className={"card "+ cardType} style={{ height: '100%' }}>
                 <div className="card-header">
                     <h4 className="card-title"><a href={url}>{name}</a></h4>
                     <span className="project-stats text-muted">
