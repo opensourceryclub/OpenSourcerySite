@@ -4,6 +4,15 @@ import { throws } from "./util";
 // curl "https://api.github.com/search/repositories?q=stars:>0+user:opensourceryclub&sort=stars&order=desc"
 export type SortBy = "updated" | "forks" | "help-wanted-issues" | "stars";
 
+enum CardType {
+    Regular = "regular-card",
+    Large   = "large-card"
+};
+        
+const cardType = {
+    regular     :{type:CardType.Regular, maxChar:75},
+    large       :{type:CardType.Large, maxChar:120}
+}
 export type GithubReposProps = {
     sort?: SortBy;
     order?: "asc" | "desc";
@@ -31,6 +40,7 @@ export interface Project {
     stars: number;
     watches: number;
     forks: number;
+    cardType: string;
 }
 
 /**
@@ -81,12 +91,12 @@ const getGithubRepos = ({
                     // TODO Sometimes this isn't appearing. Don't know if its a
                     // bug on our end, or if there just aren't any watches
                     subscribers_count: watches = 0,
-                    forks_count: forks,
+                    forks_count: forks
                 } = project;
-
-                return { name, description, language, url, stars, watches, forks } as Project;
+                const card = cardStyle(description);
+                return { name, cardType: card.type, description: processDesc(description, card.type), language, url, stars, watches, forks } as Project;
             })
-            : throws(`Expected GitHub response to be an array of repos, got a ${typeof res}`)
+            : throws(`Expected GitHub response to be an array of repos, got  a ${typeof res}`)
         )
         .then(projects => projects.filter(filter))
         // Sort projects by clout, get the top {limit} most baller repos
@@ -94,3 +104,17 @@ const getGithubRepos = ({
         //     .sort((a, b) => (a.stars + a.watches) - (b.stars + b.watches))
         //     .slice(0, limit)
         // )
+
+
+const cardStyle = (description:string)=>{
+    return description.length>cardType.regular.maxChar? cardType.large: cardType.regular;
+}
+const processDesc = (desc:string, card:CardType)=>{
+    if(card === CardType.Large){
+        if(desc.length>cardType.large.maxChar){
+            const str = desc.substr(0,cardType.large.maxChar);
+            return str.substr(0,str.lastIndexOf(" "))+"...";
+        }
+    }
+    return desc
+}
