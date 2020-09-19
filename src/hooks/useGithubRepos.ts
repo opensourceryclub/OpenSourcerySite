@@ -40,6 +40,7 @@ export interface Project {
     stars: number;
     watches: number;
     forks: number;
+    cardType:CardType;
 }
 
 /**
