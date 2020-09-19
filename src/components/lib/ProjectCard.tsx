@@ -68,10 +68,10 @@ export const ProjectCards = () => {
         case "success":
             return <>
                 {projects?.map((props, i) =>{
-                    console.log(props);
+                    console.log(props.language);
                 })}
                 {projects?.map((props, i) =>
-                    <ProjectCard key={props.name} id={`project-card-${i}`} {...props} />
+                    <ProjectCard key={props.name} id={`project-card-${i}`+" "+props.cardType} {...props} />
                 )}
             </>
     }
