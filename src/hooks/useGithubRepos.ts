@@ -10,8 +10,8 @@ enum CardType {
 };
         
 const cardType = {
-    [CardType.Regular]     :{maxChar:75},
-    [CardType.Large]       :{maxChar:120}
+    [CardType.Regular]     :{maxDisplayChar:75,maxChar:75},
+    [CardType.Large]       :{maxDisplayChar:120,maxChar:120}
 }
 export type GithubReposProps = {
     sort?: SortBy;
@@ -107,12 +107,18 @@ const getGithubRepos = ({
 
 
 const cardStyle = (description:string)=>{
-    return description.length>cardType[CardType.Large].maxChar? CardType.Large: CardType.Regular;
+    return description.length>cardType[CardType.Regular].maxChar? CardType.Large: CardType.Regular;
 }
 const processDesc = (desc:string, card:CardType)=>{
     if(card === CardType.Large){
-        if(desc.length>cardType[CardType.Large].maxChar){
-            const str = desc.substr(0,cardType[CardType.Large].maxChar);
+        if(desc.length>cardType[CardType.Large].maxDisplayChar){
+            const str = desc.substr(0,cardType[CardType.Large].maxDisplayChar);
+            return str.substr(0,str.lastIndexOf(" "))+"...";
+        }
+    }
+    if(card === CardType.Regular){
+        if(desc.length>cardType[CardType.Regular].maxDisplayChar){
+            const str = desc.substr(0,cardType[CardType.Regular].maxDisplayChar);
             return str.substr(0,str.lastIndexOf(" "))+"...";
         }
     }
