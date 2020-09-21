@@ -11,7 +11,7 @@ export interface IconProps {
      */
     fillStyle?: "solid" | "regular" | "light" | "duotone" | "brand";
     icon: string;
-    fa?: true | false;
+    fa?: boolean;
 }
 
 export interface IconLabelProps extends IconProps {
