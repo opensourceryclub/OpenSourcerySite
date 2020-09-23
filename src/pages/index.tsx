@@ -12,8 +12,8 @@ const App = () => (
         <Footer />
     </>
 );
-// ReactDOM.render(<App />, root);
 export default App;
+// ReactDOM.render(<App />, root);
 // ReactDOM.render(<Nav />, document.getElementById("nav"));
 // ReactDOM.render(<Main />, document.getElementById("main"));
 // ReactDOM.render(<Footer />, document.getElementById("footer"));
