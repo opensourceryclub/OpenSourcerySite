@@ -36,7 +36,17 @@ section.page-section {
 	}
 }
 
-.custom-svg {
-	width: 1.25em;
-	height: 1.25em;
+.icon-groupme {
+	display: inline-block;
+	transform: translateY(.20em);
+	width: 1.1em;
+	height: 1.1em;
+
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: crisp-edges;
+
+	&::before {
+		content: url("/assets/images/GroupMe.svg");
+	}
 }
