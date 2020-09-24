@@ -2,6 +2,11 @@
   "name": "opensourcerysite",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "test": "jest"
+  },
   "dependencies": {
     "@babel/core": "7.9.0",
     "@svgr/webpack": "4.3.3",
@@ -74,11 +79,6 @@
     "webpack-manifest-plugin": "2.2.0",
     "workbox-webpack-plugin": "4.3.1"
   },
-  "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "jest"
-  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -101,6 +101,7 @@
     "@types/ramda": "^0.27.17",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
+    "@types/react-helmet": "^6.1.0",
     "node-sass": "^4.14.1",
     "typescript": "^4.0.2"
   },

@@ -1,7 +1,18 @@
 const siteMetadata = {
-  title: "Open Sourcery Software Development Club at UMD",
-  shortTitle: "Open Sourcery"
+  // title: "Open Sourcery Software Development Club at UMD",
+  title: 'Open Sourcery',
+  shortTitle: 'Open Sourcery',
+  description: 'Open Sourcery - An open-source focused software development club at the University of Maryland (UMD)',
+  meta: {
+    keywords: 'Open Sourcery,OpSrc,Programming,Coding,CS,Web Development,UMD,Club',
+    author: 'Open Sourcery',
+    contributors: [
+      'Donald Isaac',
+      'Mr. Bean'
+    ]
+  }
 }
+
 module.exports = {
   siteMetadata,
   plugins: [
@@ -14,7 +25,7 @@ module.exports = {
         name: siteMetadata.title,
         short_name: siteMetadata.shortTitle,
         start_url: `/`,
-        icon: ``
+        icon: `src/assets/images/Badge.png`
         /*
         background_color: TODO,
         theme_color: TODO,
