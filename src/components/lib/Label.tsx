@@ -47,9 +47,9 @@ export const IconLabel: FC<IconLabelProps> = ({
  * Creates a FontAwesome icon
  * @param props
  */
-export const Icon: FC<IconProps> = ({ fillStyle = "", icon = "", fa = "true" }) => {
+export const Icon: FC<IconProps> = ({ fillStyle = "", icon = "", fa = true }) => {
     if(!fa)
-        return <span><img className="custom-svg" src={icon} alt="GroupMe Icon" /></span>
+        return <span className={icon}></span>
         
     // By default use font awesome.
     return <span className={classNames(["fa" + fillStyle.charAt(0), icon.startsWith("fa-") ? icon : "fa-" + icon])} />;
