@@ -16,6 +16,7 @@ const cardType = {
 export type GithubReposProps = {
     sort?: SortBy;
     order?: "asc" | "desc";
+    limit?: number;
     /**
      * Max number of results per page (max 100)
      */
@@ -93,8 +94,12 @@ const getGithubRepos = ({
                     subscribers_count: watches = 0,
                     forks_count: forks
                 } = project;
+<<<<<<< Updated upstream
                 const card = cardStyle(description);
                 return { name, cardType: card, description: processDesc(description, card), language, url, stars, watches, forks } as Project;
+=======
+                return { name, description, language, url, stars, watches, forks } as Project;
+>>>>>>> Stashed changes
             })
             : throws(`Expected GitHub response to be an array of repos, got  a ${typeof res}`)
         )

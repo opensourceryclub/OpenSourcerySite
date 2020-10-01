@@ -50,7 +50,7 @@ export const ProjectCard = ({
 
 export const ProjectCards = () => {
     const { execute, status, error, value: projects } = useGithubRepos({
-        per_page: 4,
+        per_page: 20,
         filter: repo => !!repo.description
     });
 

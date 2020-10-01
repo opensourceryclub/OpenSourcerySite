@@ -81,9 +81,12 @@ export const Main = () => {
                     </div>
                 </div>
             </section>
+<<<<<<< Updated upstream
             <section id="projects" className="page-section">
                 <Projects/>
             </section>
+=======
+>>>>>>> Stashed changes
         </main>
     );
 }
