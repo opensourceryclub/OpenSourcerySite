@@ -1,7 +1,7 @@
 # Builds and tests pull requests before they are merged
 
 name: Verify
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   test:
@@ -14,6 +14,10 @@ jobs:
       # - name: Use Node.js ${{ env.NODE_VERSION }}
       #   with:
       #     node-version: ${{ env.NODE_VERSION }}
+
+      - name: Show Environment
+        run: |
+          gatsby info
 
       - name: Verify Files
         shell: bash
