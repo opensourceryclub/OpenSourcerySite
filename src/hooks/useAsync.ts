@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 export type Status = "idle" | "loading" | "success" | "error";
 
@@ -49,9 +49,9 @@ export const useAsync = <T, E = string>(
     asyncFunction: () => Promise<T>,
     immediate = true
 ): AsyncHookPayload<T, E> => {
-    const [status, setStatus] = useState<Status>("idle")
-    const [value, setValue] = useState<T | null>(null)
-    const [error, setError] = useState<E | null>(null)
+    const [ status, setStatus ] = useState<Status>("idle")
+    const [ value, setValue ] = useState<T | null>(null)
+    const [ error, setError ] = useState<E | null>(null)
 
     // The execute function wraps asyncFunction and
     // handles setting state for pending, value, and error.
@@ -71,7 +71,7 @@ export const useAsync = <T, E = string>(
                 setError(error)
                 setStatus("error")
             })
-    }, [asyncFunction])
+    }, [ asyncFunction ])
 
     // Call execute if we want to fire it right away.
     // Otherwise execute can be called later, such as
@@ -80,7 +80,7 @@ export const useAsync = <T, E = string>(
         if (immediate) {
             execute()
         }
-    }, [execute, immediate])
+    }, [ execute, immediate ])
 
     return { execute, status, value, error }
 }

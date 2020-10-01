@@ -1,5 +1,5 @@
 import React, { MouseEventHandler, PropsWithChildren } from "react"
-import { pick, omit } from "ramda"
+import { omit, pick } from "ramda"
 import { IconLabel, IconLabelProps } from "./Label"
 import "./_button.scss"
 
@@ -43,8 +43,8 @@ export const Button = React.forwardRef<HTMLAnchorElement, PropsWithChildren<Butt
  */
 export const LabeledButton = React.forwardRef<HTMLAnchorElement, LabeledButtonProps>(
     (props, ref) =>
-        <Button ref={ref} {...pick(["url", "onClick"], props)}>
-            <IconLabel {...omit(["url", "onClick"], props)} >
+        <Button ref={ref} {...pick([ "url", "onClick" ], props)}>
+            <IconLabel {...omit([ "url", "onClick" ], props)} >
                 {props.children}
             </IconLabel>
         </Button >

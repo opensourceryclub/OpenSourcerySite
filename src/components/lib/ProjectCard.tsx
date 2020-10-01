@@ -1,6 +1,6 @@
 import React, { FC, useEffect } from "react"
 import { LabeledButton } from "./Button"
-import { useGithubRepos, Project } from "../../hooks"
+import { Project, useGithubRepos } from "../../hooks"
 import "./_project-card.scss"
 import { IconLabel } from "./Label"
 
@@ -55,7 +55,7 @@ export const ProjectCards: FC = () => {
 
     useEffect(() => {
         execute()
-    }, [execute]) // !!! DO NOT INCLUDE EXECUTE IN THE DEPENDENCY ARRAY !!!
+    }, [ execute ]) // !!! DO NOT INCLUDE EXECUTE IN THE DEPENDENCY ARRAY !!!
 
     switch (status) {
 

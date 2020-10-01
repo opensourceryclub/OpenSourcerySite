@@ -1,7 +1,7 @@
 import React, { FC } from "react"
-import { LabeledButtonProps, LabeledButton } from "./lib/Button"
 import { ProjectCards } from "./lib/ProjectCard"
 import "../assets/stylesheets/index.scss"
+import { LabeledButton, LabeledButtonProps } from "./lib/Button"
 
 export const Main: FC = () => {
     const socials: LabeledButtonProps[] = [

@@ -1,13 +1,13 @@
-import React, { useEffect, useRef, useState, FC } from "react"
+import React, { FC, useEffect, useRef, useState } from "react"
 import classes from "classnames"
 
 // I don't remember why this is called MQL
 // const MQL = 992;
 export const Nav: FC = () => {
     const mainNavRef = useRef<HTMLElement>(null)
-    const [previousTop, setPreviousTop] = useState(0)
-    const [isVisible, setIsVisible] = useState(true)
-    const [isFixed, setIsFixed] = useState(true)
+    const [ previousTop, setPreviousTop ] = useState(0)
+    const [ isVisible, setIsVisible ] = useState(true)
+    const [ isFixed, setIsFixed ] = useState(true)
 
     const handleClassAdjustments = () => {
         if (!mainNavRef.current) {
