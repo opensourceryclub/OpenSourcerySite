@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { LabeledButton } from "./Button";
-import { useGithubRepos, Project } from "../../hooks";
-import "./_project-card.scss";
-import { IconLabel } from "./Label";
+import React, { FC, useEffect } from "react"
+import { LabeledButton } from "./Button"
+import { Project, useGithubRepos } from "../../hooks"
+import "./_project-card.scss"
+import { IconLabel } from "./Label"
 
 enum CardType {
     Regular = "regular-card"
@@ -19,7 +19,7 @@ export interface ProjectCardProps extends Project {
 export interface ProjectCardsProps {
     projects?: ProjectCardProps[];
 }
-export const ProjectCard = ({
+export const ProjectCard: FC<ProjectCardProps> = ({
     id,
     cname,
     name,
@@ -28,9 +28,9 @@ export const ProjectCard = ({
     stars,
     watches,
     forks
-}: ProjectCardProps) => (
+}) => (
     <div id={id} className="col-12 col-sm-6 col-xl-3 pb-4 project-card">
-        <div className={cname} style={{ height: '100%' }}>
+        <div className="card" style={{ height: "100%" }}>
             <div className="card-header">
                 <h4 className="card-title"><a href={url}>{name}</a></h4>
                 <span className="project-stats text-muted">
@@ -52,9 +52,9 @@ export const ProjectCard = ({
             </div>
         </div>
     </div>
-);
+)
 
-export const ProjectCards = () => {
+export const ProjectCards: FC = () => {
     const { execute, status, error, value: projects } = useGithubRepos({
         per_page: 20,
         filter: repo => !!repo.description

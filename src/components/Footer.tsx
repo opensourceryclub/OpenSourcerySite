@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from "react"
 
-export const Footer = () => (
+export const Footer: FC = () => (
     <footer>
         <div className="container-fluid footer bg-dark py-4">
             <div className="row justify-center color-primary" style={{ margin: 0 }}>
@@ -8,4 +8,4 @@ export const Footer = () => (
             </div>
         </div>
     </footer>
-);
+)
