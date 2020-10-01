@@ -4,11 +4,15 @@ import { throws } from "./util";
 // curl "https://api.github.com/search/repositories?q=stars:>0+user:opensourceryclub&sort=stars&order=desc"
 export type SortBy = "updated" | "forks" | "help-wanted-issues" | "stars";
 
+/**
+ * Establish Card type, character size
+ * 
+ * Rules implementation.
+ */
 enum CardType {
     Regular = "regular-card",
     Large   = "large-card"
-};
-        
+};        
 const cardType = {
     [CardType.Regular]     :{maxDisplayChar:75,maxChar:75},
     [CardType.Large]       :{maxDisplayChar:120,maxChar:120}
