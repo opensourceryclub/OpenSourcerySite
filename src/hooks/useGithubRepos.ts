@@ -9,14 +9,6 @@ export type SortBy = "updated" | "forks" | "help-wanted-issues" | "stars";
  * 
  * Rules implementation.
  */
-enum CardType {
-    Regular = "regular-card",
-    Large   = "large-card"
-};        
-const cardType = {
-    [CardType.Regular]     :{maxDisplayChar:75,maxChar:75},
-    [CardType.Large]       :{maxDisplayChar:120,maxChar:120}
-}
 export type GithubReposProps = {
     sort?: SortBy;
     order?: "asc" | "desc";
@@ -98,8 +90,7 @@ const getGithubRepos = ({
                     subscribers_count: watches = 0,
                     forks_count: forks
                 } = project;
-                const card = cardStyle(description);
-                return { name, cardType: card, description: processDesc(description, card), language, url, stars, watches, forks } as Project;
+                return { name, description, language, url, stars, watches, forks } as Project;
             })
             : throws(`Expected GitHub response to be an array of repos, got  a ${typeof res}`)
         )
@@ -109,23 +100,3 @@ const getGithubRepos = ({
         //     .sort((a, b) => (a.stars + a.watches) - (b.stars + b.watches))
         //     .slice(0, limit)
         // )
-
-
-const cardStyle = (description:string)=>{
-    return description.length>cardType[CardType.Regular].maxChar? CardType.Large: CardType.Regular;
-}
-const processDesc = (desc:string, card:CardType)=>{
-    if(card === CardType.Large){
-        if(desc.length>cardType[CardType.Large].maxDisplayChar){
-            const str = desc.substr(0,cardType[CardType.Large].maxDisplayChar);
-            return str.substr(0,str.lastIndexOf(" "))+"...";
-        }
-    }
-    if(card === CardType.Regular){
-        if(desc.length>cardType[CardType.Regular].maxDisplayChar){
-            const str = desc.substr(0,cardType[CardType.Regular].maxDisplayChar);
-            return str.substr(0,str.lastIndexOf(" "))+"...";
-        }
-    }
-    return desc
-}
