@@ -86,7 +86,7 @@ export const Nav = () => {
                     </li>                    
                     <li className="nav-item">
                         <a className="nav-link" href="https://github.com/OpenSourceryClub">
-                            <span className="fab fa-github" /> GitHub
+                            <span className="fab fa-github" />
                         </a>
                     </li>
                 </ul>
