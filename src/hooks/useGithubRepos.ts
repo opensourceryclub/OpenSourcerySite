@@ -1,5 +1,5 @@
-import { useAsync } from "./useAsync";
-import { throws } from "./util";
+import { AsyncHookPayload, useAsync } from "./useAsync"
+import { throws } from "./util"
 
 // curl "https://api.github.com/search/repositories?q=stars:>0+user:opensourceryclub&sort=stars&order=desc"
 export type SortBy = "updated" | "forks" | "help-wanted-issues" | "stars";
@@ -7,14 +7,17 @@ export type SortBy = "updated" | "forks" | "help-wanted-issues" | "stars";
 export type GithubReposProps = {
     sort?: SortBy;
     order?: "asc" | "desc";
+
     /**
      * Max number of results per page (max 100)
      */
     per_page?: number;
+
     /**
      * Search page number to get
      */
     page?: number;
+
     /**
      * Specifies the types of repositories you want returned. Can be one of all,
      * public, private, forks, sources, member, internal.
@@ -36,14 +39,15 @@ export interface Project {
 /**
  * Gets a bunch of repos from the Open Sourcery organization's GitHub org.
  *
- * @param sort How to sort the responses, set to GitHub.
- * @param limit Max number of projects to return. Must be between 0-100 inclusive.
+ * @param props Query settings, etc. to send to Github
+ * 
+ * @see GithubReposProps for what each property in the object argument does
  */
-export const useGithubRepos = (props: GithubReposProps = {}) =>
-    useAsync<Project[], Error>(getGithubRepos(props), false);
+export const useGithubRepos = (props: GithubReposProps = {}): AsyncHookPayload<Project[], Error> =>
+    useAsync<Project[], Error>(getGithubRepos(props), false)
 
 const defaults: Partial<GithubReposProps> = {
-    sort: "stars",
+    sort:  "stars",
     order: "desc"
 }
 /**
@@ -82,9 +86,9 @@ const getGithubRepos = ({
                     // bug on our end, or if there just aren't any watches
                     subscribers_count: watches = 0,
                     forks_count: forks,
-                } = project;
+                } = project
 
-                return { name, description, language, url, stars, watches, forks } as Project;
+                return { name, description, language, url, stars, watches, forks } as Project
             })
             : throws(`Expected GitHub response to be an array of repos, got a ${typeof res}`)
         )

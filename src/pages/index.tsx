@@ -1,12 +1,12 @@
-import React from 'react';
-import Layout from '../layout/Layout';
-import { Main } from '../components/Main';
+import React, { FC } from "react"
+import Layout from "../layout/Layout"
+import { Main } from "../components/Main"
 
-const App = () => (
+const App: FC = () => (
     <Layout>
         <Main />
     </Layout>
-);
+)
 
-export default App;
+export default App
 

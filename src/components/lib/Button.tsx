@@ -1,7 +1,7 @@
-import React, { MouseEventHandler, PropsWithChildren } from "react";
-import { pick, omit } from "ramda";
-import { IconLabel, IconLabelProps } from "./Label";
-import "./_button.scss";
+import React, { MouseEventHandler, PropsWithChildren } from "react"
+import { omit, pick } from "ramda"
+import { IconLabel, IconLabelProps } from "./Label"
+import "./_button.scss"
 
 export interface ButtonProps {
     url?: string;
@@ -21,10 +21,10 @@ export const Button = React.forwardRef<HTMLAnchorElement, PropsWithChildren<Butt
 }, ref) =>
     <a
         {...{
-            href: url,
+            href:      url,
             className: "btn btn-primary",
-            target: "_blank",
-            rel: "noopener noreferrer",
+            target:    "_blank",
+            rel:       "noopener noreferrer",
             onClick,
             ref
         }}
@@ -33,7 +33,7 @@ export const Button = React.forwardRef<HTMLAnchorElement, PropsWithChildren<Butt
         {/* {icon && <span className={classNames(icon)} />}
         {" " + text?.trim()} */}
     </a>
-);
+)
 
 /**
  * Convienence component - Creates a button with a labeled icon inside of it
@@ -43,9 +43,9 @@ export const Button = React.forwardRef<HTMLAnchorElement, PropsWithChildren<Butt
  */
 export const LabeledButton = React.forwardRef<HTMLAnchorElement, LabeledButtonProps>(
     (props, ref) =>
-        <Button ref={ref} {...pick(["url", "onClick"], props)}>
-            <IconLabel {...omit(["url", "onClick"], props)} >
+        <Button ref={ref} {...pick([ "url", "onClick" ], props)}>
+            <IconLabel {...omit([ "url", "onClick" ], props)} >
                 {props.children}
             </IconLabel>
         </Button >
-);
+)

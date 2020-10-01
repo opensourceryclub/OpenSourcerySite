@@ -1,2 +1,2 @@
-export * from "./useAsync";
-export * from "./useGithubRepos";
+export * from "./useAsync"
+export * from "./useGithubRepos"
