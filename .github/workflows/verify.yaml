@@ -15,10 +15,6 @@ jobs:
       #   with:
       #     node-version: ${{ env.NODE_VERSION }}
 
-      - name: Show Environment
-        run: |
-          gatsby info
-
       - name: Verify Files
         shell: bash
         # run: |
@@ -61,6 +57,10 @@ jobs:
           restore-keys: ${{ runner.os }}-yarn-
 
       - run: yarn install --frozen-lockfile
+
+      - name: Show Environment
+        run: |
+          yarn gatsby info
       # TODO
       # - run: yarn lint
       - run: yarn build
