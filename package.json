@@ -5,7 +5,10 @@
   "scripts": {
     "start": "gatsby develop",
     "build": "gatsby build",
-    "test": "jest"
+    "lint": "eslint --ext .js,.ts,.tsx src/",
+    "lint:fix": "yarn lint --fix",
+    "test": "jest",
+    "test:ci": "yarn test --ci"
   },
   "dependencies": {
     "@babel/core": "7.9.0",
@@ -96,6 +99,7 @@
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
+    "@types/eslint": "^7.2.3",
     "@types/jest": "^26.0.13",
     "@types/node": "^14.10.1",
     "@types/ramda": "^0.27.17",

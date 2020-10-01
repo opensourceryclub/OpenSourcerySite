@@ -1,17 +1,17 @@
-import React, { useEffect, useRef, useState } from 'react';
-import classes from 'classnames';
+import React, { useEffect, useRef, useState, FC } from "react"
+import classes from "classnames"
 
 // I don't remember why this is called MQL
 // const MQL = 992;
-export const Nav = () => {
-    const mainNavRef = useRef<HTMLElement>(null);
-    const [previousTop, setPreviousTop] = useState(0);
-    const [isVisible, setIsVisible] = useState(true);
-    const [isFixed, setIsFixed] = useState(true);
+export const Nav: FC = () => {
+    const mainNavRef = useRef<HTMLElement>(null)
+    const [previousTop, setPreviousTop] = useState(0)
+    const [isVisible, setIsVisible] = useState(true)
+    const [isFixed, setIsFixed] = useState(true)
 
     const handleClassAdjustments = () => {
         if (!mainNavRef.current) {
-            return;
+            return
         }
 
         const {
@@ -20,48 +20,48 @@ export const Nav = () => {
                 paddingTop,
                 paddingBottom
             }
-        } = mainNavRef.current;
+        } = mainNavRef.current
         // Account for padding
         const headerHeight = clientHeight
             + (paddingTop ? Number.parseInt(paddingTop) : 0)
-            + (paddingBottom ? Number.parseInt(paddingBottom) : 0);
+            + (paddingBottom ? Number.parseInt(paddingBottom) : 0)
 
-        const currentTop = window.scrollY;
+        const currentTop = window.scrollY
 
-        //check if user is scrolling up
+        // check if user is scrolling up
         if (currentTop < previousTop) {
-            //if scrolling up...
+            // if scrolling up...
             if (currentTop > 0 && isFixed) {
-                setIsVisible(true);
+                setIsVisible(true)
             } else {
-                setIsVisible(false);
-                setIsFixed(false);
+                setIsVisible(false)
+                setIsFixed(false)
             }
         } else if (currentTop > previousTop) {
-            //if scrolling down...
+            // if scrolling down...
             setIsVisible(false)
             if (currentTop > headerHeight && !isFixed) {
                 setIsFixed(true)
             }
         }
-        setPreviousTop(currentTop);
+        setPreviousTop(currentTop)
     }
 
     useEffect(() => {
 
-        window.addEventListener('scroll', handleClassAdjustments)
+        window.addEventListener("scroll", handleClassAdjustments)
         return () => {
-            window.removeEventListener('scroll', handleClassAdjustments);
+            window.removeEventListener("scroll", handleClassAdjustments)
         }
-    });
+    })
 
     const classNames = classes(
-        'navbar', 'navbar-expand-lg', 'navbar-dark', 'fixed-top',
+        "navbar", "navbar-expand-lg", "navbar-dark", "fixed-top",
         {
-            'is-visible': isVisible,
-            'is-fixed': isFixed
+            "is-visible": isVisible,
+            "is-fixed":   isFixed
         }
-    );
+    )
 
     return (
         <nav className={classNames} id="mainNav" ref={mainNavRef}>
@@ -82,5 +82,5 @@ export const Nav = () => {
                 </ul>
             </div>
         </nav>
-    );
+    )
 }
