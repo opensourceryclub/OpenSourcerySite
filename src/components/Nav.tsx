@@ -75,8 +75,18 @@ export const Nav: FC = () => {
             <div className="navbar-collapse collapse" id="navbarNav" style={{}}>
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
+                        <a className="nav-link" href="/">
+                            <span className="fab" /> Home
+                        </a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="/projects">
+                            <span className="fab" /> Projects 
+                        </a>
+                    </li>
+                    <li className="nav-item">
                         <a className="nav-link" href="https://github.com/OpenSourceryClub">
-                            <span className="fab fa-github" /> GitHub
+                            <span className="fab fa-github" /> 
                         </a>
                     </li>
                 </ul>

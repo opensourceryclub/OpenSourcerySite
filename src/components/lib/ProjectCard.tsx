@@ -12,6 +12,14 @@ export interface ProjectCardsProps {
     projects?: ProjectCardProps[];
 }
 
+
+enum CardType {
+    Regular = 'regular-card'
+}
+const charLimits = {
+    [CardType.Regular] : {maxChar: 50}
+}
+const num_cards = 20
 export const ProjectCard: FC<ProjectCardProps> = ({
     id,
     name,
@@ -49,13 +57,13 @@ export const ProjectCard: FC<ProjectCardProps> = ({
 export const ProjectCards: FC = () => {
     const { execute, status, error, value: projects } = useGithubRepos({
         // eslint-disable-next-line @typescript-eslint/camelcase
-        per_page: 4,
+        per_page: num_cards,
         filter:   repo => !!repo.description
     })
 
     useEffect(() => {
         execute()
-    }, [ execute ]) // !!! DO NOT INCLUDE EXECUTE IN THE DEPENDENCY ARRAY !!!
+    }, [ ]) // !!! DO NOT INCLUDE EXECUTE IN THE DEPENDENCY ARRAY !!!
 
     switch (status) {
 
@@ -69,9 +77,17 @@ export const ProjectCards: FC = () => {
         return <></>
     case "success":
         return <>
-            {projects?.map((props, i) =>
-                <ProjectCard key={props.name} id={`project-card-${i}`} {...props} />
-                )}
+            {projects?.map((props, i) =>{
+                props.description = limitDescription(props.description);
+                return <ProjectCard key={props.name} id={`project-card-${i}`} {...props} />;
+            })}
         </>
     }
 }
+const limitDescription = (description:string)=>{
+    if(description.length > charLimits[CardType.Regular].maxChar){
+        const str = description.substring(0,charLimits[CardType.Regular].maxChar);
+        return str.substring(0,str.lastIndexOf(' '))+"...";
+    }
+    return description;
+};
