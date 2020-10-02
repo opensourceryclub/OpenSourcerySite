@@ -17,7 +17,7 @@ enum CardType {
     Regular = 'regular-card'
 }
 const charLimits = {
-    [CardType.Regular] : {maxChar: 50}
+    [CardType.Regular] : {maxChar: 75}
 }
 const num_cards = 20
 export const ProjectCard: FC<ProjectCardProps> = ({
