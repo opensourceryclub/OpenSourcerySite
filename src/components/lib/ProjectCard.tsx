@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { FC, useEffect } from "react"
 import { LabeledButton } from "./Button"
 import { Project, useGithubRepos } from "../../hooks"
@@ -10,6 +11,14 @@ enum CardType {
 const cardType = {
     [CardType.Regular] :{maxChar:50}
 }
+=======
+import React, { useEffect, useState } from "react";
+import { LabeledButton } from "./Button";
+import { useGithubRepos, Project } from "../../hooks";
+import "./_project-card.scss";
+import { IconLabel } from "./Label";
+import classes from 'classnames';
+>>>>>>> parent of b6e71dc... creating projects pages
 
 export interface ProjectCardProps extends Project {
     id?: string;
@@ -74,18 +83,9 @@ export const ProjectCards: FC = () => {
             return <></>;
         case "success":
             return <>
-                {projects?.map((props, i) => {
-                    props.description = processDescription(props.description);
-                    return <ProjectCard key={props.name} cname={"card "+props.cardType} id={`project-card-${i}`} {...props} />
-                })}
+                {projects?.map((props, i) =>
+                    <ProjectCard key={props.name} cname={"card "+props.cardType} id={`project-card-${i}`} {...props} />
+                )}
             </>
     }
-}
-
-const processDescription = (description:string)=>{
-    if(description.length>cardType[CardType.Regular].maxChar){
-        const str = description.substr(0,cardType[CardType.Regular].maxChar);
-        return str.substr(0,str.lastIndexOf(" "))+"...";
-    }
-    return description
 }
