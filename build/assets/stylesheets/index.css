@@ -7269,3 +7269,13 @@ section {
   display: block;
   font-size: 48px;
   text-align: center; }
+
+
+/* Add a.hover-light */
+a.hover-light{
+  transition: all 0.3s ease-out;
+}
+a.hover-light:hover{
+  color: snow;
+  transition: all 0.3s ease-in;
+}
