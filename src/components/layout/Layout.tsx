@@ -1,16 +1,16 @@
 import React, { FC, PropsWithChildren, ReactElement } from "react"
 import { StaticQuery, graphql } from "gatsby"
 import { Helmet } from "react-helmet"
-import { Nav } from "../components/Nav"
-import { Footer } from "../components/Footer"
+import { Nav } from "./Nav"
+import { Footer } from "./Footer"
 
 export type LayoutProps  = PropsWithChildren<{
-    pageTitle?: string;
+    pageTitle?: string
     data: {
-        title: string;
-        description: string;
-        meta: Record<string, string[] | string>;
-    };
+        title: string
+        description: string
+        meta: Record<string, string[] | string>
+    }
 }>;
 
 export default (props: Omit<LayoutProps, "data">): ReactElement<StaticQuery> =>
@@ -61,9 +61,9 @@ const Layout: FC<LayoutProps> = ({
                 Object.keys(meta).map(name =>
                     meta[name] instanceof Array
                         ? (meta[name] as string[]).map(content =>
-                            <meta name={name} content={content} key={content} />
+                            <meta name={name} content={content} key={`${name}-${content}`} />
                         )
-                        : <meta name={name} content={meta[name] as string} />
+                        : <meta name={name} content={(meta[name] as string) ?? ""} key={`${name}-${meta[name]}`} />
                 )
             }
         </Helmet>

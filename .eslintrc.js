@@ -25,6 +25,14 @@ module.exports = {
     rules: {
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/explicit-module-boundary-types": "error",
+        "@typescript-eslint/member-delimiter-style": ["error", {
+            multiline: {
+                delimiter: "none",
+            },
+            singleline: {
+                delimiter: "semi"
+            }
+        }],
         "@typescript-eslint/prefer-regexp-exec": "off",
         "@typescript-eslint/no-use-before-define": "off",
         "array-bracket-spacing": ["error", "always", {
@@ -36,6 +44,7 @@ module.exports = {
         "indent": ["error", 4],
         "jsx-quotes": ["error", "prefer-double"],
         "key-spacing": ["error", { "align": "value" }],
+        "lines-around-comment": "error",
         "no-fallthrough": "warn",
         "object-curly-spacing": ["error", "always"],
         "object-property-newline": ["error", { "allowAllPropertiesOnSameLine": true }],

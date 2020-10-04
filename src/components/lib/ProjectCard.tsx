@@ -5,11 +5,11 @@ import "./_project-card.scss"
 import { IconLabel } from "./Label"
 
 export interface ProjectCardProps extends Project {
-    id?: string;
+    id?: string
 }
 
 export interface ProjectCardsProps {
-    projects?: ProjectCardProps[];
+    projects?: ProjectCardProps[]
 }
 
 export const ProjectCard: FC<ProjectCardProps> = ({
@@ -55,7 +55,8 @@ export const ProjectCards: FC = () => {
 
     useEffect(() => {
         execute()
-    }, [ execute ]) // !!! DO NOT INCLUDE EXECUTE IN THE DEPENDENCY ARRAY !!!
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [ ]) // !!! DO NOT INCLUDE EXECUTE IN THE DEPENDENCY ARRAY !!!
 
     switch (status) {
 

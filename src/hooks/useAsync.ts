@@ -9,7 +9,7 @@ export interface AsyncHookPayload<T, E = string> {
      * Executes the async function. You will need to call this if the `immediate`
      * parameter was set to `false`
      */
-    execute: () => Promise<void>;
+    execute: () => Promise<void>
 
     /**
      * The status of the executing async function. This can take one of four values:
@@ -19,19 +19,19 @@ export interface AsyncHookPayload<T, E = string> {
      * - `success` -  Execution as completed successfully, and `value` has been set to the result
      * - `error`   -  Execution has completed unsuccessfully, and `error` has been set to whatever error was thrown.
      */
-    status: Status;
+    status: Status
 
     /**
      * The value the async function resolved to. If execution has not finished
      * or was not successful, `value` is null.
      */
-    value: T | null;
+    value: T | null
 
     /**
      * The error object, if any, the async function threw/rejected. If it did
      * not reject, then `error` is null.
      */
-    error: E | null;
+    error: E | null
 }
 
 /**

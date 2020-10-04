@@ -2,6 +2,7 @@ import React, { FC } from "react"
 import classNames from "classnames"
 
 export interface IconProps {
+
     /**
      * The FontAwesome fill style. Most fill syles, except for `solid`,
      * aren't available for most icons because they're only available with
@@ -9,17 +10,18 @@ export interface IconProps {
      *
      * @see https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use
      */
-    fillStyle?: "solid" | "regular" | "light" | "duotone" | "brand";
-    icon: string;
+    fillStyle?: "solid" | "regular" | "light" | "duotone" | "brand"
+    icon: string
 }
 
 export interface IconLabelProps extends IconProps {
+
     /**
      * The text to display next to the icon. If not provided, the component's
      * `children` are used instead.
      */
-    text?: string;
-    id?: string;
+    text?: string
+    id?: string
 }
 
 /**
