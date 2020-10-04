@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState, Component } from "react"
+import React, { FC, useEffect, useRef, useState } from "react"
 import classes from "classnames"
 
 // I don't remember why this is called MQL
@@ -53,7 +53,6 @@ export const Nav: FC = () => {
     }
 
     useEffect(() => {
-
         window.addEventListener("scroll", handleClassAdjustments)
         return () => {
             window.removeEventListener("scroll", handleClassAdjustments)

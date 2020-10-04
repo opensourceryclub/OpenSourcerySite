@@ -11,7 +11,11 @@ export interface ProjectCardProps extends Project {
 export interface ProjectCardsProps {
     projects?: ProjectCardProps[];
 }
-
+export interface ProjectProps {    
+    perPage?:number | 4
+    sort?:"updated" | "forks" | "help-wanted-issues" | "stars",
+    order?:"asc" | "desc"
+}
 
 enum CardType {
     Regular = 'regular-card'
@@ -19,7 +23,6 @@ enum CardType {
 const charLimits = {
     [CardType.Regular] : {maxChar: 75}
 }
-const num_cards = 20
 export const ProjectCard: FC<ProjectCardProps> = ({
     id,
     name,
@@ -53,11 +56,14 @@ export const ProjectCard: FC<ProjectCardProps> = ({
         </div>
     </div>
 )
-
-export const ProjectCards: FC = () => {
+export const ProjectCards: FC<ProjectProps> = ({
+    ...params
+}) => {
     const { execute, status, error, value: projects } = useGithubRepos({
         // eslint-disable-next-line @typescript-eslint/camelcase
-        per_page: num_cards,
+        per_page: params.perPage,
+        sort: params.sort,
+        order: params.order,
         filter:   repo => !!repo.description
     })
 

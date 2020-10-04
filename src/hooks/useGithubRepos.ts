@@ -46,7 +46,7 @@ export interface Project {
 export const useGithubRepos = (props: GithubReposProps = {}): AsyncHookPayload<Project[], Error> =>
     useAsync<Project[], Error>(getGithubRepos(props), false)
 
-const defaults: Partial<GithubReposProps> = {
+export const defaults: Partial<GithubReposProps> = {
     sort:  "stars",
     order: "desc"
 }
@@ -64,7 +64,7 @@ const getGithubRepos = ({
     fetch(
         "https://api.github.com/search/repositories?" +
         "q=stars:>0+user:opensourceryclub&" + // All repos belonging to OpSrc with more than 0 stars
-        new URLSearchParams({ ...defaults, ...params } as Record<string, string>).toString()
+        new URLSearchParams({...params } as Record<string, string>).toString()
     )
 
         // Parse the response body
