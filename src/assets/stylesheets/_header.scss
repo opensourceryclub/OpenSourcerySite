@@ -19,8 +19,12 @@
    *********************/
 
   .navbar-brand-text {
-    // font-size: 30px;
     font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    &:hover {
+      text-shadow: 1px 1px 3px #70c5dda3;
+    }
   }
 
   .navbar-dark .navbar-nav .nav-link {
@@ -40,7 +44,6 @@
     border-bottom-color: rgba(0, 0, 0, 0);
     border-bottom: 1px solid map-get($theme-colors, "dark");
     background-color: map-get($theme-colors, "dark");
-
     .navbar-brand {
       color: map-get($theme-colors, "primary");
       &:hover {
@@ -64,8 +67,10 @@
       -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
       -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      transition: 4s;
     }
-
+    
     #mainNav .nav-link,
     #mainNav > .navbar-brand {
       transition: color 0.2s;
