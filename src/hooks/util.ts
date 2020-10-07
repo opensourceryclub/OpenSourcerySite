@@ -1,7 +1,7 @@
-export const throws = (err: any) => {
+export const throws = <T extends Error | string | undefined>(err: T): never => {
     if (err instanceof Error) {
-        throw err;
+        throw err
     } else {
-        throw new Error(err)
+        throw new Error(err as string | undefined)
     }
 }

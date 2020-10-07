@@ -37,6 +37,7 @@ bower_components
 
 # Compiled code
 build/
+public/
 
 # Dependency directories
 node_modules/
@@ -63,10 +64,6 @@ jspm_packages/
 # Yarn stuff
 .yarn-integrity
 .yarn
-
-# dotenv environment variables file
-.env
-.env.test
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache

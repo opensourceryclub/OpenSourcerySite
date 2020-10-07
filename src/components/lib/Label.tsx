@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import classNames from "classnames";
+import React, { FC } from "react"
+import classNames from "classnames"
 
 export interface IconProps {
     /**
@@ -33,15 +33,15 @@ export const IconLabel: FC<IconLabelProps> = ({
     children,
     ...iconProps
 }) => (
-        <span id={id}>
-            <Icon {...iconProps} />
-            {
-                text
-                    ? <>&nbsp;{text.trim()}</>
-                    : children
-            }
-        </span>
-    );
+    <span id={id}>
+        <Icon {...iconProps} />
+        {
+            text
+                ? <>&nbsp;{text.trim()}</>
+                : children
+        }
+    </span>
+)
 
 /**
  * Creates a FontAwesome icon
@@ -54,4 +54,3 @@ export const Icon: FC<IconProps> = ({ fillStyle = "", icon = "", fa = true }) =>
     // By default use font awesome.
     return <span className={classNames(["fa" + fillStyle.charAt(0), icon.startsWith("fa-") ? icon : "fa-" + icon])} />;
 }
-    
