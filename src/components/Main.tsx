@@ -82,10 +82,10 @@ export const Main: FC = () => {
                 </div>
             </section>
             <section id="projects" className="page-section">
-                <div className="container text-center">
+                <div className="container text-center" style={{ marginTop: "107px", marginBottom: 0 }} >
                     <h1 className="title display-4">Projects</h1>
                     <div className="row color-dark">
-                        <ProjectCards />
+                        <ProjectCards perPage={4}/>
                     </div>
                     <a className="btn btn-lg btn-primary color-dark my-3" href="https://github.com/OpenSourceryClub" target="_blank" rel="noopener noreferrer"><span className="fab fa-github" /> All Projects</a>
                 </div>
