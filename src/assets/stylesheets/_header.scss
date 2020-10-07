@@ -68,8 +68,9 @@
       transform: translate3d(0, 0, 0);
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
+      transition: 4s;
     }
-
+    
     #mainNav .nav-link,
     #mainNav > .navbar-brand {
       transition: color 0.2s;
