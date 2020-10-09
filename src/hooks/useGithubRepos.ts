@@ -66,6 +66,7 @@ const getGithubRepos = ({
         "https://api.github.com/search/repositories?" +
         "q=stars:>0+user:opensourceryclub&" + // All repos belonging to OpSrc with more than 0 stars
         new URLSearchParams({...defaults, ...params } as Record<string, string>).toString()
+
     )
 
         // Parse the response body

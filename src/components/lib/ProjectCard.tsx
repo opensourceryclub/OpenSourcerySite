@@ -56,10 +56,11 @@ export const ProjectCard: FC<ProjectCardProps> = ({
         </div>
     </div>
 )
-export const ProjectCards: FC<ProjectProps> = (props) =>{
-    const { execute, status, error, value: projects } = useGithubRepos({
+const { execute, status, error, value: projects } = useGithubRepos({
         // eslint-disable-next-line @typescript-eslint/camelcase
-        ...props,
+        per_page: params.perPage,
+        sort: params.sort,
+        order: params.order,
         filter:   repo => !!repo.description
     })
 
