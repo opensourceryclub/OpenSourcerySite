@@ -12,7 +12,7 @@ export interface ProjectCardsProps {
     projects?: ProjectCardProps[];
 }
 export interface ProjectProps {    
-    perPage?:number | 4
+    perPage?:number,
     sort?:"updated" | "forks" | "help-wanted-issues" | "stars",
     order?:"asc" | "desc"
 }
@@ -56,10 +56,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
         </div>
     </div>
 )
-export const ProjectCards: FC<ProjectProps> = ({
-    ...params
-}) => {
-    const { execute, status, error, value: projects } = useGithubRepos({
+const { execute, status, error, value: projects } = useGithubRepos({
         // eslint-disable-next-line @typescript-eslint/camelcase
         per_page: params.perPage,
         sort: params.sort,

@@ -48,7 +48,8 @@ export const useGithubRepos = (props: GithubReposProps = {}): AsyncHookPayload<P
 
 export const defaults: Partial<GithubReposProps> = {
     sort:  "stars",
-    order: "desc"
+    order: "desc",
+    per_page: 4
 }
 /**
  *
@@ -64,7 +65,8 @@ const getGithubRepos = ({
     fetch(
         "https://api.github.com/search/repositories?" +
         "q=stars:>0+user:opensourceryclub&" + // All repos belonging to OpSrc with more than 0 stars
-        new URLSearchParams({...params } as Record<string, string>).toString()
+        new URLSearchParams({...defaults, ...params } as Record<string, string>).toString()
+
     )
 
         // Parse the response body
