@@ -4,11 +4,24 @@ import "../assets/stylesheets/index.scss"
 import { LabeledButton, LabeledButtonProps } from "../components/lib/Button"
 import Layout from "../components/layout/Layout"
 import { Column, Section, SectionRow } from "../components/layout/Grid"
+import { Banner } from "../components/layout/Banner"
 
 const Main: FC = () => (
     <Layout>
         <main>
-            <Banner />
+            <Banner
+                title="Open Sourcery"
+                subtitle={<>Wednesdays, 6:30pm-8pm in the <a className="hover-light" href="https://sandbox.iribe.umd.edu/" style={{ textDecoration: "underline" }}>Sandbox</a></>}
+                button={
+                    <LabeledButton
+                        url="https://terplink.umd.edu/organization/open-sourcery"
+                        classes={[ "btn-lg", "color-dark" ]}
+                        fillStyle="solid"
+                        icon="user-plus"
+                        text="Join Us"
+                    />
+                }
+            />
             <Section title="About Us">
                 <SectionRow title="Who We Are">
                     <Column width={12}>
@@ -42,7 +55,7 @@ const Main: FC = () => (
             </Section>
             <Section title="Projects">
                 <div className="row color-dark">
-                    <ProjectCards />
+                    <ProjectCards perPage={4}/>
                 </div>
                 <LabeledButton
                     url="https://github.com/OpenSourceryClub"
@@ -56,7 +69,7 @@ const Main: FC = () => (
     </Layout>
 )
 
-const Banner = () => (
+const BannerOLD = () => (
     <div className="jumbotron jumbotron-fluid bg-dark" style={{ marginTop: "57px", marginBottom: 0 }} role="banner">
         <div className="container text-center">
             <img src="assets/images/Badge.png" alt="Open Sourcery Logo" width="25%" height="25%" />

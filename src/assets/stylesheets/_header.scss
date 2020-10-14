@@ -44,7 +44,6 @@
     border-bottom-color: rgba(0, 0, 0, 0);
     border-bottom: 1px solid map-get($theme-colors, "dark");
     background-color: map-get($theme-colors, "dark");
-
     .navbar-brand {
       color: map-get($theme-colors, "primary");
       &:hover {
@@ -69,8 +68,9 @@
       transform: translate3d(0, 0, 0);
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
+      transition: 4s;
     }
-
+    
     #mainNav .nav-link,
     #mainNav > .navbar-brand {
       transition: color 0.2s;

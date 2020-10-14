@@ -11,7 +11,18 @@ export interface ProjectCardProps extends Project {
 export interface ProjectCardsProps {
     projects?: ProjectCardProps[]
 }
+export interface ProjectProps {
+    perPage?: number
+    sort?: "updated" | "forks" | "help-wanted-issues" | "stars"
+    order?: "asc" | "desc"
+}
 
+enum CardType {
+    Regular = "regular-card"
+}
+const charLimits = {
+    [CardType.Regular]: { maxChar: 75 }
+}
 export const ProjectCard: FC<ProjectCardProps> = ({
     id,
     name,
@@ -45,34 +56,40 @@ export const ProjectCard: FC<ProjectCardProps> = ({
         </div>
     </div>
 )
+export const ProjectCards: FC<ProjectProps> = props => {
 
-export const ProjectCards: FC = () => {
     const { execute, status, error, value: projects } = useGithubRepos({
-        // eslint-disable-next-line @typescript-eslint/camelcase
-        per_page: 4,
-        filter:   repo => !!repo.description
+        filter: repo => !!repo.description,
+        ...props,
     })
 
     useEffect(() => {
         execute()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [ ]) // !!! DO NOT INCLUDE EXECUTE IN THE DEPENDENCY ARRAY !!!
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []) // !!! DO NOT INCLUDE EXECUTE IN THE DEPENDENCY ARRAY !!!
 
     switch (status) {
 
-    // TODO handle error cases with an error boundary
-    // TODO add a skeleton component to display while loading
-    // NOTE: Fallthrough is intentional
-    case "error":
-        console.error(error)
-    case "idle":
-    case "loading":
-        return <></>
-    case "success":
-        return <>
-            {projects?.map((props, i) =>
-                <ProjectCard key={props.name} id={`project-card-${i}`} {...props} />
-                )}
+        // TODO handle error cases with an error boundary
+        // TODO add a skeleton component to display while loading
+        // NOTE: Fallthrough is intentional
+        case "error":
+            console.error(error)
+        case "idle":
+        case "loading": return <></>
+        case "success": return <>
+            {projects?.map((props, i) => {
+                props.description = limitDescription(props.description)
+                return <ProjectCard key={props.name} id={`project-card-${i}`} {...props} />
+            })}
         </>
     }
+}
+
+const limitDescription = (description: string) => {
+    if (description.length > charLimits[CardType.Regular].maxChar) {
+        const str = description.substring(0, charLimits[CardType.Regular].maxChar)
+        return str.substring(0, str.lastIndexOf(" ")) + "..."
+    }
+    return description
 }

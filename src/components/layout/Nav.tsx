@@ -8,7 +8,12 @@ export const Nav: FC = () => {
     const [ previousTop, setPreviousTop ] = useState(0)
     const [ isVisible, setIsVisible ] = useState(true)
     const [ isFixed, setIsFixed ] = useState(true)
+    
+    const [ isActive, setIsActive] = useState(false)
 
+    const toggleDrop = () =>{       
+        setIsActive(!isActive);
+    }
     const handleClassAdjustments = () => {
         if (!mainNavRef.current) {
             return
@@ -48,7 +53,6 @@ export const Nav: FC = () => {
     }
 
     useEffect(() => {
-
         window.addEventListener("scroll", handleClassAdjustments)
         return () => {
             window.removeEventListener("scroll", handleClassAdjustments)
@@ -62,6 +66,13 @@ export const Nav: FC = () => {
             "is-fixed":   isFixed
         }
     )
+    const className2 = classes(
+        "navbar-collapse",
+        {   
+            "collapse": !isActive,
+            "show": isActive
+        }
+    )
 
     return (
         <nav className={classNames} id="mainNav" ref={mainNavRef}>
@@ -69,14 +80,24 @@ export const Nav: FC = () => {
                 <img src="assets/images/Badge.png" alt="Open Sourcery Logo" width={40} height={40} />
                 <span className="navbar-brand-text">Open Sourcery</span>
             </a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button className={`navbar-toggler ${isActive?'':'collapsed'}`} type="button" onClick={()=>{toggleDrop()}} data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded='false' aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon" />
             </button>
-            <div className="navbar-collapse collapse" id="navbarNav" style={{}}>
+            <div className={className2} id="navbarNav" style={{}}>
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
+                        <a className="nav-link" href="/">
+                            <span className="fab" /> Home
+                        </a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href="/projects">
+                            <span className="fab" /> Projects 
+                        </a>
+                    </li>
+                    <li className="nav-item">
                         <a className="nav-link" href="https://github.com/OpenSourceryClub">
-                            <span className="fab fa-github" /> GitHub
+                            <span className="fab fa-github" /> 
                         </a>
                     </li>
                 </ul>

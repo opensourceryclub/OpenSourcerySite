@@ -41,7 +41,9 @@ module.exports = {
         }],
         "array-element-newline": ["error", "consistent"],
         "comma-style": "error",
-        "indent": ["error", 4],
+        "indent": ["error", 4, {
+            "SwitchCase": 1
+        }],
         "jsx-quotes": ["error", "prefer-double"],
         "key-spacing": ["error", { "align": "value" }],
         "lines-around-comment": "error",
