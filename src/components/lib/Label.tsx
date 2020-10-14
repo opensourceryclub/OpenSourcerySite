@@ -4,7 +4,7 @@ import classNames from "classnames"
 export interface IconProps {
 
     /**
-     * The FontAwesome fill style. Most fill syles, except for `solid`,
+     * The FontAwesome fill style. Most fill styles, except for `solid`,
      * aren't available for most icons because they're only available with
      * a pro subscription.
      *
@@ -12,6 +12,7 @@ export interface IconProps {
      */
     fillStyle?: "solid" | "regular" | "light" | "duotone" | "brand"
     icon: string
+    fa?: boolean
 }
 
 export interface IconLabelProps extends IconProps {
@@ -48,12 +49,10 @@ export const IconLabel: FC<IconLabelProps> = ({
  * Creates a FontAwesome icon
  * @param props
  */
-export const Icon: FC<IconProps> = ({ fillStyle = "", icon = "" }) =>
-    <span
-        className={classNames([
-            "fa" + fillStyle.charAt(0),
-            icon.startsWith("fa-")
-                ? icon
-                : "fa-" + icon
-        ])}
-    />
+export const Icon: FC<IconProps> = ({ fillStyle = "", icon = "", fa = true }) => {
+    if(!fa)
+        return <span className={icon}></span>
+        
+    // By default use font awesome.
+    return <span className={classNames([ "fa" + fillStyle.charAt(0), icon.startsWith("fa-") ? icon : "fa-" + icon ])} />
+}

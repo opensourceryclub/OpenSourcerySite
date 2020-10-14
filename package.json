@@ -8,7 +8,8 @@
     "lint": "eslint --ext .js,.ts,.tsx src/",
     "lint:fix": "yarn lint --fix",
     "test": "jest --errorOnDeprecated",
-    "test:ci": "yarn test --ci --forceExit"
+    "test:ci": "yarn test --ci --forceExit",
+    "clean": "gatsby clean"
   },
   "dependencies": {
     "@babel/core": "7.9.0",

@@ -39,3 +39,18 @@ section {
 		max-width: 1280px;
 	}
 }
+
+.icon-groupme {
+	display: inline-block;
+	transform: translateY(.25em);
+	width: 1em;
+	height: auto;
+
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: crisp-edges;
+
+	&::before {
+		content: url("/assets/images/GroupMe.svg");
+	}
+}

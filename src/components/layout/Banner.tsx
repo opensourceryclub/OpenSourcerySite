@@ -1,35 +1,19 @@
 import React, { FC } from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import { useBrand } from "../../hooks/useBrand"
 
 export interface BannerProps {
+
+    /**
+     * The title to display on the banner. This is put inside an `<h1>` tag.
+     */
     title: string
     subtitle?: string | React.ReactElement
     button?: React.ReactElement
 }
 
 export const Banner: FC<BannerProps> = ({ title, subtitle, button }) => {
-    const data = useStaticQuery(graphql`
-    query BadgeQuery {
-        allFile(filter: { name: { eq: "Badge" }}) {
-            edges {
-                node {
-                    publicURL
-                }
-            }
-        }
-    }`)
-
-    const {
-        allFile: {
-            edges: [
-                {
-                    node: {
-                        publicURL: badgeUrl
-                    }
-                }
-            ]
-        }
-    } = data
+    const badgeUrl = useBrand()
 
     return (
         <div className="jumbotron jumbotron-fluid bg-dark" style={{ marginTop: "57px", marginBottom: 0 }} role="banner">

@@ -69,24 +69,6 @@ const Main: FC = () => (
     </Layout>
 )
 
-const BannerOLD = () => (
-    <div className="jumbotron jumbotron-fluid bg-dark" style={{ marginTop: "57px", marginBottom: 0 }} role="banner">
-        <div className="container text-center">
-            <img src="assets/images/Badge.png" alt="Open Sourcery Logo" width="25%" height="25%" />
-            <h1 id="main-title" className="title color-primary">Open Sourcery</h1>
-            <p className="lead my-3 color-primary">Wednesdays, 6:30pm-8pm in the <a className="hover-light" href="https://sandbox.iribe.umd.edu/" style={{ textDecoration: "underline" }}>Sandbox</a></p>
-            <hr className="my-4" />
-            <LabeledButton
-                url="https://terplink.umd.edu/organization/open-sourcery"
-                classes={[ "btn-lg", "color-dark" ]}
-                fillStyle="solid"
-                icon="user-plus"
-                text="Join Us"
-            />
-        </div>
-    </div>
-)
-
 const Activity = ({ title = "", description = "", icon = "" }) => (
     <Column
         classes={[ "justify-center" ]}
@@ -113,7 +95,8 @@ const socials: LabeledButtonProps[] = [
         text:      "GroupMe",
         url:       "https://groupme.com/join_group/49800573/ziPXHEva",
         fillStyle: "solid",
-        icon:      "star" // TODO replace this with GroupMe icon
+        icon:      "icon-groupme",
+        fa:        false,
     },
     {
         text: "Email",
