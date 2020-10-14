@@ -2,11 +2,27 @@ import React, { FC } from "react"
 import Layout from "../components/layout/Layout"
 import { ProjectCards } from "../components/lib/ProjectCard"
 import "../assets/stylesheets/index.scss"
+import { Banner } from "../components/layout/Banner"
+import { LabeledButton } from "../components/lib/Button"
 
 const Projects: FC = () => (
     <Layout>
         <main>
-            <Banner />
+            <Banner
+                title="Projects"
+                button={
+                    <LabeledButton
+                        url="https://github.com/OpenSourceryClub"
+                        classes={[ "btn-lg", "color-dark" ]}
+                        fillStyle="brand"
+                        icon="github"
+                        text="All Projects"
+                    />
+                }
+                /*button={
+                    <a className="btn btn-lg btn-primary color-dark my-3" href="https://github.com/OpenSourceryClub" target="_blank" rel="noopener noreferrer"><span className="fab fa-github" /> All Projects</a>
+                }*/
+            />
             <section id="projects" className="page-section">
                 <div className="container text-center" style={{ marginTop: "107px", marginBottom: 0 }} >
                     <div className="row color-dark">
@@ -20,7 +36,7 @@ const Projects: FC = () => (
 )
 
 
-const Banner = () => (
+const BannerOLD = () => (
     <div className="jumbotron jumbotron-fluid bg-dark" style={{ marginTop: "57px", marginBottom: 0 }} role="banner">
         <div className="container text-center">
             <img src="assets/images/Badge.png" alt="Open Sourcery Logo" width="25%" height="25%" />

@@ -23,9 +23,10 @@ export const Banner: FC<BannerProps> = ({ title, subtitle, button }) => {
         allFile: {
             edges: [
                 {
-                    publicURL: badgeUrl
-                },
-                ...rest
+                    node: {
+                        publicURL: badgeUrl
+                    }
+                }
             ]
         }
     } = data
