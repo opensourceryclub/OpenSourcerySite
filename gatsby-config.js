@@ -25,7 +25,7 @@ module.exports = {
         name: siteMetadata.title,
         short_name: siteMetadata.shortTitle,
         start_url: `/`,
-        icon: `src/assets/images/Badge.png`
+        icon: `static/images/Badge.png`
         /*
         background_color: TODO,
         theme_color: TODO,
@@ -33,7 +33,7 @@ module.exports = {
         */
       }
     },
-    'gatsby-plugin-offline', // should be listed after manifest plugin
+    'gatsby-plugin-offline', // should be listed after gatsby-plugin-manifest
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -41,6 +41,25 @@ module.exports = {
         name: 'pages',
       },
     },
+    // Content used to build pages
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content`,
+        name: 'content',
+      },
+    },
+    // Static assets, such as images
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/static`,
+        name: 'static',
+      },
+    },
+    /* Parses markdown. Makes md data available through GraphQL.
+     * https://www.gatsbyjs.com/plugins/gatsby-transformer-remark/
+     */
     {
       resolve: 'gatsby-transformer-remark',
       options: {

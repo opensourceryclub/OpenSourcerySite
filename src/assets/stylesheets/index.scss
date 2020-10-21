@@ -12,16 +12,20 @@
 section {
 	padding-top: 1.5rem;
 	padding-bottom: 1.5rem;
-}
 
-section.page-section {
-	&:nth-child(odd) {
-		@extend .bg-dark, .color-primary;
+	&.page-section {
+		&:nth-child(odd) {
+			@extend .bg-dark, .color-primary;
+		}
+
+		&:nth-child(even) {
+			@extend .bg-light, .color-dark;
+		}
 	}
 
-	&:nth-child(even) {
-		@extend .bg-light, .color-dark;
-	}
+	// .page-section {
+	// 	@extend .bg-dark, .color-primary;
+	// }
 }
 
 .about-icon {

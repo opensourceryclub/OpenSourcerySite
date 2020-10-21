@@ -1,28 +1,32 @@
 import React, { MouseEventHandler, PropsWithChildren } from "react"
+import classNames from "classnames"
 import { omit, pick } from "ramda"
 import { IconLabel, IconLabelProps } from "./Label"
 import "./_button.scss"
 
 export interface ButtonProps {
-    url?: string;
+    url?: string
+    classes?: string[]
+
     /**
      * Class names that define the icon to put next to the text. If none are provided,
      * no icon appears.
      */
     // icon?: Parameters<typeof classNames> | string;
-    onClick?: MouseEventHandler;
+    onClick?: MouseEventHandler
 }
 export type LabeledButtonProps = PropsWithChildren<ButtonProps & IconLabelProps>;
 
 export const Button = React.forwardRef<HTMLAnchorElement, PropsWithChildren<ButtonProps>>(({
     url,
+    classes = [],
     onClick,
     children
 }, ref) =>
     <a
         {...{
             href:      url,
-            className: "btn btn-primary",
+            className: classNames("btn btn-primary", ...classes),
             target:    "_blank",
             rel:       "noopener noreferrer",
             onClick,
@@ -43,7 +47,7 @@ export const Button = React.forwardRef<HTMLAnchorElement, PropsWithChildren<Butt
  */
 export const LabeledButton = React.forwardRef<HTMLAnchorElement, LabeledButtonProps>(
     (props, ref) =>
-        <Button ref={ref} {...pick([ "url", "onClick" ], props)}>
+        <Button ref={ref} {...pick([ "url", "onClick", "classes" ], props)}>
             <IconLabel {...omit([ "url", "onClick" ], props)} >
                 {props.children}
             </IconLabel>

@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useRef, useState } from "react"
 import classes from "classnames"
+import { useBrand } from "../../hooks/useBrand"
 
 // I don't remember why this is called MQL
 // const MQL = 992;
@@ -9,10 +10,11 @@ export const Nav: FC = () => {
     const [ isVisible, setIsVisible ] = useState(true)
     const [ isFixed, setIsFixed ] = useState(true)
     
-    const [ isActive, setIsActive] = useState(false)
+    const [ isActive, setIsActive ] = useState(false)
+    const badgeUrl = useBrand()
 
     const toggleDrop = () =>{       
-        setIsActive(!isActive);
+        setIsActive(!isActive)
     }
     const handleClassAdjustments = () => {
         if (!mainNavRef.current) {
@@ -70,17 +72,17 @@ export const Nav: FC = () => {
         "navbar-collapse",
         {   
             "collapse": !isActive,
-            "show": isActive
+            "show":     isActive
         }
     )
 
     return (
         <nav className={classNames} id="mainNav" ref={mainNavRef}>
             <a href="/" className="navbar-brand text-uppercase">
-                <img src="assets/images/Badge.png" alt="Open Sourcery Logo" width={40} height={40} />
+                <img src={badgeUrl} alt="Open Sourcery Logo" width={40} height={40} />
                 <span className="navbar-brand-text">Open Sourcery</span>
             </a>
-            <button className={`navbar-toggler ${isActive?'':'collapsed'}`} type="button" onClick={()=>{toggleDrop()}} data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded='false' aria-label="Toggle navigation">
+            <button className={`navbar-toggler ${isActive ? "" : "collapsed"}`} type="button" onClick={()=>{toggleDrop()}} data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon" />
             </button>
             <div className={className2} id="navbarNav" style={{}}>
