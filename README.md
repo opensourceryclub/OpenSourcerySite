@@ -1,5 +1,5 @@
 <div align="center" style="display: flex; text-align: center !important; width: 100%; margin: auto;">
-    <img src="https://github.com/opensourceryclub/OpenSourcerySite/blob/dev/src/assets/images/Badge.png" alt="Open Sourcery Logo" width=256 height=256 style="display: block; margin: auto" >
+    <img src="https://github.com/opensourceryclub/OpenSourcerySite/blob/dev/static/images/Badge.png" alt="Open Sourcery Logo" width=256 height=256 style="display: block; margin: auto" >
     <h1>Open Sourcery Site</h1>
         <h3>
             <a href="https://opensourceryumd.com" style="display: inline-block; text-align: center; background-color: #18bbea; color: #212529; text-decoration: none; padding: 0.5rem 1rem; border-style: 1px solid #18bbea; border-radius: 5px; font-weight: bold">
